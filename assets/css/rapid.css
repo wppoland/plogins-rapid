@@ -1,0 +1,214 @@
+/**
+ * Rapid — storefront quick-order form styles.
+ *
+ * Modern, accessible and theme-friendly: custom properties for easy overriding,
+ * a responsive table that collapses to cards on small screens, visible focus
+ * states, and motion guarded by prefers-reduced-motion. No layout shift.
+ */
+
+.rapid {
+    --rapid-border: #e2e4e7;
+    --rapid-muted: #50575e;
+    --rapid-accent: #2271b1;
+    --rapid-row-hover: #f6f7f7;
+    --rapid-radius: 10px;
+    margin: 1.5rem 0;
+}
+
+.rapid__notices {
+    margin-bottom: 1rem;
+}
+
+.rapid__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.rapid__search-field {
+    flex: 1 1 16rem;
+    margin: 0;
+}
+
+.rapid__filter-field {
+    flex: 0 1 14rem;
+    margin: 0;
+}
+
+.rapid__controls label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.rapid__search,
+.rapid__category {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid var(--rapid-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rapid__search:focus-visible,
+.rapid__category:focus-visible {
+    outline: none;
+    border-color: var(--rapid-accent);
+    box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.2);
+}
+
+.rapid__status {
+    min-height: 1.25rem;
+    margin: 0 0 0.5rem;
+    color: var(--rapid-muted);
+    font-size: 0.9rem;
+}
+
+.rapid__status:empty {
+    display: none;
+}
+
+.rapid__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--rapid-border);
+    border-radius: var(--rapid-radius);
+    overflow: hidden;
+}
+
+.rapid__table th,
+.rapid__table td {
+    padding: 0.65rem 0.75rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--rapid-border);
+}
+
+.rapid__table thead th {
+    background: var(--rapid-row-hover);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.rapid__row {
+    transition: background-color 0.12s ease;
+}
+
+.rapid__row:hover {
+    background: var(--rapid-row-hover);
+}
+
+.rapid__col-image img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: var(--rapid-row-hover);
+}
+
+.rapid__col-sku {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.85rem;
+    color: var(--rapid-muted);
+}
+
+.rapid__qty {
+    width: 5rem;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid var(--rapid-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.rapid__qty:focus-visible {
+    outline: none;
+    border-color: var(--rapid-accent);
+    box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.2);
+}
+
+.rapid__qty:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.rapid__empty-row td {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--rapid-muted);
+}
+
+.rapid__actions {
+    margin-top: 1rem;
+}
+
+.rapid__submit[aria-busy="true"] {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+/* Responsive: collapse the table into stacked cards on small screens. */
+@media (max-width: 640px) {
+    .rapid__table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    .rapid__table,
+    .rapid__table tbody,
+    .rapid__table tr,
+    .rapid__table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .rapid__row {
+        border: 1px solid var(--rapid-border);
+        border-radius: var(--rapid-radius);
+        margin-bottom: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .rapid__table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        border-bottom: 1px solid var(--rapid-border);
+    }
+
+    .rapid__table td:last-child {
+        border-bottom: 0;
+    }
+
+    .rapid__table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--rapid-muted);
+    }
+
+    .rapid__col-image::before {
+        content: "";
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rapid__search,
+    .rapid__category,
+    .rapid__qty,
+    .rapid__row {
+        transition: none;
+    }
+}
