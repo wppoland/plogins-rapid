@@ -72,6 +72,10 @@ Enter a quantity for each product you want, then click "Add selected to cart".
 Every product with a quantity is added in one submit, and you get a notice
 saying how many were added (and how many, if any, could not be).
 
+= Do shoppers need an account? =
+
+No. The form works for guests and logged-in customers; cart behaviour follows your normal WooCommerce guest-checkout settings.
+
 == Screenshots ==
 
 1. The quick order form with live search and quantity inputs.
