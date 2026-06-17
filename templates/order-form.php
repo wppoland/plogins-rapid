@@ -52,37 +52,37 @@ $rapid_show_stock = ! empty($settings['show_stock']);
 
         <div class="rapid__status" aria-live="polite" role="status"></div>
 
-        <table class="rapid__table">
-            <thead>
-                <tr>
+        <table class="rapid__table" role="table">
+            <thead role="rowgroup">
+                <tr role="row">
                     <?php if ($rapid_show_image) : ?>
-                        <th scope="col" class="rapid__col-image"><span class="screen-reader-text"><?php esc_html_e('Image', 'rapid'); ?></span></th>
+                        <th scope="col" role="columnheader" class="rapid__col-image"><span class="screen-reader-text"><?php esc_html_e('Image', 'rapid'); ?></span></th>
                     <?php endif; ?>
-                    <th scope="col" class="rapid__col-name"><?php esc_html_e('Product', 'rapid'); ?></th>
+                    <th scope="col" role="columnheader" class="rapid__col-name"><?php esc_html_e('Product', 'rapid'); ?></th>
                     <?php if ($rapid_show_sku) : ?>
-                        <th scope="col" class="rapid__col-sku"><?php esc_html_e('SKU', 'rapid'); ?></th>
+                        <th scope="col" role="columnheader" class="rapid__col-sku"><?php esc_html_e('SKU', 'rapid'); ?></th>
                     <?php endif; ?>
                     <?php if ($rapid_show_price) : ?>
-                        <th scope="col" class="rapid__col-price"><?php esc_html_e('Price', 'rapid'); ?></th>
+                        <th scope="col" role="columnheader" class="rapid__col-price"><?php esc_html_e('Price', 'rapid'); ?></th>
                     <?php endif; ?>
                     <?php if ($rapid_show_stock) : ?>
-                        <th scope="col" class="rapid__col-stock"><?php esc_html_e('Stock', 'rapid'); ?></th>
+                        <th scope="col" role="columnheader" class="rapid__col-stock"><?php esc_html_e('Stock', 'rapid'); ?></th>
                     <?php endif; ?>
-                    <th scope="col" class="rapid__col-qty"><?php esc_html_e('Quantity', 'rapid'); ?></th>
+                    <th scope="col" role="columnheader" class="rapid__col-qty"><?php esc_html_e('Quantity', 'rapid'); ?></th>
                 </tr>
             </thead>
-            <tbody class="rapid__body">
+            <tbody class="rapid__body" role="rowgroup">
                 <?php if ([] === $products) : ?>
-                    <tr class="rapid__empty-row">
-                        <td colspan="<?php echo esc_attr((string) $columns); ?>">
+                    <tr class="rapid__empty-row" role="row">
+                        <td colspan="<?php echo esc_attr((string) $columns); ?>" role="cell">
                             <?php esc_html_e('No products are available to order yet.', 'rapid'); ?>
                         </td>
                     </tr>
                 <?php else : ?>
                     <?php foreach ($products as $rapid_product) : ?>
-                        <tr class="rapid__row">
+                        <tr class="rapid__row" role="row">
                             <?php if ($rapid_show_image) : ?>
-                                <td class="rapid__col-image" data-label="<?php esc_attr_e('Image', 'rapid'); ?>">
+                                <td class="rapid__col-image" role="cell" data-label="<?php esc_attr_e('Image', 'rapid'); ?>">
                                     <img
                                         src="<?php echo esc_url((string) $rapid_product['imageUrl']); ?>"
                                         alt=""
@@ -93,7 +93,7 @@ $rapid_show_stock = ! empty($settings['show_stock']);
                                     />
                                 </td>
                             <?php endif; ?>
-                            <td class="rapid__col-name" data-label="<?php esc_attr_e('Product', 'rapid'); ?>">
+                            <td class="rapid__col-name" role="cell" data-label="<?php esc_attr_e('Product', 'rapid'); ?>">
                                 <?php if ('' !== (string) $rapid_product['permalink']) : ?>
                                     <a href="<?php echo esc_url((string) $rapid_product['permalink']); ?>"><?php echo esc_html((string) $rapid_product['name']); ?></a>
                                 <?php else : ?>
@@ -101,15 +101,15 @@ $rapid_show_stock = ! empty($settings['show_stock']);
                                 <?php endif; ?>
                             </td>
                             <?php if ($rapid_show_sku) : ?>
-                                <td class="rapid__col-sku" data-label="<?php esc_attr_e('SKU', 'rapid'); ?>"><?php echo esc_html((string) $rapid_product['sku']); ?></td>
+                                <td class="rapid__col-sku" role="cell" data-label="<?php esc_attr_e('SKU', 'rapid'); ?>"><?php echo esc_html((string) $rapid_product['sku']); ?></td>
                             <?php endif; ?>
                             <?php if ($rapid_show_price) : ?>
-                                <td class="rapid__col-price" data-label="<?php esc_attr_e('Price', 'rapid'); ?>"><?php echo wp_kses_post((string) $rapid_product['priceHtml']); ?></td>
+                                <td class="rapid__col-price" role="cell" data-label="<?php esc_attr_e('Price', 'rapid'); ?>"><?php echo wp_kses_post((string) $rapid_product['priceHtml']); ?></td>
                             <?php endif; ?>
                             <?php if ($rapid_show_stock) : ?>
-                                <td class="rapid__col-stock" data-label="<?php esc_attr_e('Stock', 'rapid'); ?>"><?php echo esc_html((string) $rapid_product['stockHtml']); ?></td>
+                                <td class="rapid__col-stock" role="cell" data-label="<?php esc_attr_e('Stock', 'rapid'); ?>"><?php echo esc_html((string) $rapid_product['stockHtml']); ?></td>
                             <?php endif; ?>
-                            <td class="rapid__col-qty" data-label="<?php esc_attr_e('Quantity', 'rapid'); ?>">
+                            <td class="rapid__col-qty" role="cell" data-label="<?php esc_attr_e('Quantity', 'rapid'); ?>">
                                 <label class="screen-reader-text" for="rapid-qty-<?php echo esc_attr((string) $rapid_product['id']); ?>">
                                     <?php
                                     /* translators: %s: product name */
