@@ -67,10 +67,12 @@
 
 	function buildRow(product, quantities) {
 		var tr = el('tr', 'rapid__row');
+		tr.setAttribute('role', 'row');
 		var id = String(product.id);
 
 		if (showImage) {
 			var imgCell = el('td', 'rapid__col-image');
+			imgCell.setAttribute('role', 'cell');
 			imgCell.setAttribute('data-label', '');
 			var img = document.createElement('img');
 			img.src = product.imageUrl || '';
@@ -84,6 +86,7 @@
 		}
 
 		var nameCell = el('td', 'rapid__col-name');
+		nameCell.setAttribute('role', 'cell');
 		nameCell.setAttribute('data-label', 'Product');
 		if (product.permalink) {
 			var link = el('a', null, product.name);
@@ -96,12 +99,14 @@
 
 		if (showSku) {
 			var skuCell = el('td', 'rapid__col-sku', product.sku || '');
+			skuCell.setAttribute('role', 'cell');
 			skuCell.setAttribute('data-label', 'SKU');
 			tr.appendChild(skuCell);
 		}
 
 		if (showPrice) {
 			var priceCell = el('td', 'rapid__col-price');
+			priceCell.setAttribute('role', 'cell');
 			priceCell.setAttribute('data-label', 'Price');
 			// priceHtml is WooCommerce-generated price markup; safe to inject.
 			priceCell.innerHTML = product.priceHtml || '';
@@ -110,11 +115,13 @@
 
 		if (showStock) {
 			var stockCell = el('td', 'rapid__col-stock', product.stockHtml || '');
+			stockCell.setAttribute('role', 'cell');
 			stockCell.setAttribute('data-label', 'Stock');
 			tr.appendChild(stockCell);
 		}
 
 		var qtyCell = el('td', 'rapid__col-qty');
+		qtyCell.setAttribute('role', 'cell');
 		qtyCell.setAttribute('data-label', 'Quantity');
 
 		var label = el('label', 'screen-reader-text', 'Quantity');
@@ -145,7 +152,9 @@
 
 		if (!products || !products.length) {
 			var tr = el('tr', 'rapid__empty-row');
+			tr.setAttribute('role', 'row');
 			var td = el('td', null, i18n.noResults || 'No products found.');
+			td.setAttribute('role', 'cell');
 			td.setAttribute('colspan', '99');
 			tr.appendChild(td);
 			body.appendChild(tr);
