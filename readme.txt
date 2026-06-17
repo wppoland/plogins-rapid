@@ -81,6 +81,10 @@ No. The form works for guests and logged-in customers; cart behaviour follows yo
 1. The quick order form with live search and quantity inputs.
 2. The Rapid settings screen under WooCommerce.
 
+== External Services ==
+
+Rapid does not connect to any external services. The live product search runs against your own store: the form posts to your site's `admin-ajax.php` and queries your existing WooCommerce products by name or SKU, and the batched add-to-cart uses WooCommerce's own cart. Rapid stores only two options in your WordPress database (`rapid_settings` and `rapid_db_version`); it creates no custom tables and sends no email.
+
 == Changelog ==
 
 = 0.1.0 =
