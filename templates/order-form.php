@@ -8,6 +8,7 @@
  * @var array<int, array<string, mixed>>     $products    Initial product rows.
  * @var int                                  $columns     Table column count.
  * @var string                               $notice      Pre-rendered WC notices HTML.
+ * @var array{user_id: int, role: string, roles: list<string>} $context Visitor context.
  *
  * @package Rapid
  */
@@ -20,6 +21,7 @@ $rapid_show_image = ! empty($settings['show_image']);
 $rapid_show_sku   = ! empty($settings['show_sku']);
 $rapid_show_price = ! empty($settings['show_price']);
 $rapid_show_stock = ! empty($settings['show_stock']);
+$rapid_context    = isset($context) && is_array($context) ? $context : ['user_id' => 0, 'role' => 'guest', 'roles' => ['guest']];
 ?>
 <div
     class="rapid"
@@ -35,6 +37,15 @@ $rapid_show_stock = ! empty($settings['show_stock']);
     ?>
 
     <div class="rapid__controls">
+        <?php
+        /**
+         * Fires before the search field on the quick-order form.
+         *
+         * @param array<string, mixed>                                     $settings Merged settings.
+         * @param array{user_id: int, role: string, roles: list<string>} $context  Visitor context.
+         */
+        do_action('rapid/form_fields', $settings, $rapid_context);
+        ?>
         <p class="rapid__search-field">
             <label for="rapid-search"><?php esc_html_e('Search products', 'rapid'); ?></label>
             <input

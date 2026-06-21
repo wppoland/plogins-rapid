@@ -90,11 +90,13 @@ final class OrderForm implements HasHooks
         ]);
 
         ob_start();
+        $context = OrderContext::current();
         $this->renderTemplate('order-form', [
             'settings' => $settings,
             'products' => $this->initialProducts($settings),
             'columns'  => $this->columnCount($settings),
             'notice'   => $this->consumeNotice(),
+            'context'  => $context,
         ]);
 
         return (string) ob_get_clean();
@@ -548,7 +550,18 @@ final class OrderForm implements HasHooks
         /** @var array<string, mixed> $defaults */
         $defaults = require RAPID_DIR . 'config/defaults.php';
 
-        return array_merge($defaults, $stored);
+        $settings = array_merge($defaults, $stored);
+        $context  = OrderContext::current();
+
+        /**
+         * Filters quick-order settings for the current visitor.
+         *
+         * @param array<string, mixed>                                     $settings Merged settings.
+         * @param array{user_id: int, role: string, roles: list<string>} $context  Visitor context.
+         */
+        $filtered = apply_filters('rapid/order_settings', $settings, $context);
+
+        return is_array($filtered) ? $filtered : $settings;
     }
 
     /**
