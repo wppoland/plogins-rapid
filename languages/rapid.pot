@@ -44,7 +44,7 @@ msgid "Rapid - Quick Order Form for WooCommerce requires WooCommerce to be activ
 msgstr ""
 
 #: src/Admin/Settings.php:65
-msgid "Rapid — Quick Order Form"
+msgid "Rapid: Quick Order Form"
 msgstr ""
 
 #: src/Admin/Settings.php:66
@@ -58,7 +58,7 @@ msgstr ""
 #. translators: %s: shortcode wrapped in <code>.
 #: src/Admin/Settings.php:112
 #, php-format
-msgid "Drop %s into any page to let customers search products by name or SKU, set quantities and add many to the cart in one click — perfect for B2B, wholesale and reorders."
+msgid "Drop %s into any page to let customers search products by name or SKU, set quantities and add many to the cart in one click, perfect for B2B, wholesale and reorders."
 msgstr ""
 
 #: src/Admin/Settings.php:123
@@ -74,7 +74,7 @@ msgid "Show the quick order form on the storefront."
 msgstr ""
 
 #: src/Admin/Settings.php:142
-msgid "When off, the shortcode renders nothing — handy while you set things up. Turn it on once you are ready for customers to use it."
+msgid "When off, the shortcode renders nothing, handy while you set things up. Turn it on once you are ready for customers to use it."
 msgstr ""
 
 #: src/Admin/Settings.php:151
@@ -118,7 +118,7 @@ msgid "Columns"
 msgstr ""
 
 #: src/Admin/Settings.php:213
-msgid "Choose which columns appear in the order table. Product name and quantity are always shown — for example:"
+msgid "Choose which columns appear in the order table. Product name and quantity are always shown, for example:"
 msgstr ""
 
 #: src/Admin/Settings.php:216
