@@ -62,7 +62,7 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Rapid — Quick Order Form', 'rapid'),
+            __('Rapid: Quick Order Form', 'rapid'),
             __('Rapid', 'rapid'),
             'manage_woocommerce',
             self::PAGE,
@@ -109,7 +109,7 @@ final class Settings implements HasHooks
                     <?php
                     printf(
                         /* translators: %s: shortcode wrapped in <code>. */
-                        esc_html__('Drop %s into any page to let customers search products by name or SKU, set quantities and add many to the cart in one click — perfect for B2B, wholesale and reorders.', 'rapid'),
+                        esc_html__('Drop %s into any page to let customers search products by name or SKU, set quantities and add many to the cart in one click, perfect for B2B, wholesale and reorders.', 'rapid'),
                         '<code>[rapid_order]</code>',
                     );
                     ?>
@@ -139,7 +139,7 @@ final class Settings implements HasHooks
                                         <?php esc_html_e('Show the quick order form on the storefront.', 'rapid'); ?>
                                     </label>
                                     <p class="description">
-                                        <?php esc_html_e('When off, the shortcode renders nothing — handy while you set things up. Turn it on once you are ready for customers to use it.', 'rapid'); ?>
+                                        <?php esc_html_e('When off, the shortcode renders nothing, handy while you set things up. Turn it on once you are ready for customers to use it.', 'rapid'); ?>
                                     </p>
                                 </td>
                             </tr>
@@ -210,7 +210,7 @@ final class Settings implements HasHooks
 
                 <div class="rapid-card">
                     <h2><?php esc_html_e('Columns', 'rapid'); ?></h2>
-                    <p class="description"><?php esc_html_e('Choose which columns appear in the order table. Product name and quantity are always shown — for example:', 'rapid'); ?></p>
+                    <p class="description"><?php esc_html_e('Choose which columns appear in the order table. Product name and quantity are always shown, for example:', 'rapid'); ?></p>
                     <div class="rapid-preview" aria-hidden="true">
                         <div class="rapid-preview-head">
                             <span><?php esc_html_e('Product', 'rapid'); ?></span>
