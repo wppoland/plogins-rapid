@@ -62,8 +62,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Rapid: Quick Order Form', 'rapid'),
-            __('Rapid', 'rapid'),
+            __('Rapid: Quick Order Form', 'plogins-rapid'),
+            __('Rapid', 'plogins-rapid'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -104,12 +104,12 @@ final class Settings implements HasHooks
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 
             <div class="rapid-intro">
-                <h2><?php esc_html_e('A fast bulk order form for your shop', 'rapid'); ?></h2>
+                <h2><?php esc_html_e('A fast bulk order form for your shop', 'plogins-rapid'); ?></h2>
                 <p>
                     <?php
                     printf(
                         /* translators: %s: shortcode wrapped in <code>. */
-                        esc_html__('Drop %s into any page to let customers search products by name or SKU, set quantities and add many to the cart in one click, perfect for B2B, wholesale and reorders.', 'rapid'),
+                        esc_html__('Drop %s into any page to let customers search products by name or SKU, set quantities and add many to the cart in one click, perfect for B2B, wholesale and reorders.', 'plogins-rapid'),
                         '<code>[rapid_order]</code>',
                     );
                     ?>
@@ -120,12 +120,12 @@ final class Settings implements HasHooks
                 <?php settings_fields(self::GROUP); ?>
 
                 <div class="rapid-card">
-                    <h2><?php esc_html_e('General', 'rapid'); ?></h2>
+                    <h2><?php esc_html_e('General', 'plogins-rapid'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <?php esc_html_e('Enable quick order', 'rapid'); ?>
+                                    <?php esc_html_e('Enable quick order', 'plogins-rapid'); ?>
                                 </th>
                                 <td>
                                     <label for="rapid_enabled">
@@ -136,10 +136,10 @@ final class Settings implements HasHooks
                                             value="1"
                                             <?php checked((bool) ($settings['enabled'] ?? false), true); ?>
                                         />
-                                        <?php esc_html_e('Show the quick order form on the storefront.', 'rapid'); ?>
+                                        <?php esc_html_e('Show the quick order form on the storefront.', 'plogins-rapid'); ?>
                                     </label>
                                     <p class="description">
-                                        <?php esc_html_e('When off, the shortcode renders nothing, handy while you set things up. Turn it on once you are ready for customers to use it.', 'rapid'); ?>
+                                        <?php esc_html_e('When off, the shortcode renders nothing, handy while you set things up. Turn it on once you are ready for customers to use it.', 'plogins-rapid'); ?>
                                     </p>
                                 </td>
                             </tr>
@@ -148,12 +148,12 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="rapid-card">
-                    <h2><?php esc_html_e('Product scope', 'rapid'); ?></h2>
+                    <h2><?php esc_html_e('Product scope', 'plogins-rapid'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="rapid_scope"><?php esc_html_e('Which products?', 'rapid'); ?></label>
+                                    <label for="rapid_scope"><?php esc_html_e('Which products?', 'plogins-rapid'); ?></label>
                                 </th>
                                 <td>
                                     <select
@@ -162,14 +162,14 @@ final class Settings implements HasHooks
                                         name="<?php echo esc_attr(self::OPTION); ?>[scope]"
                                     >
                                         <option value="all" <?php selected($scope, 'all'); ?>>
-                                            <?php esc_html_e('All products', 'rapid'); ?>
+                                            <?php esc_html_e('All products', 'plogins-rapid'); ?>
                                         </option>
                                         <option value="categories" <?php selected($scope, 'categories'); ?>>
-                                            <?php esc_html_e('Selected categories only', 'rapid'); ?>
+                                            <?php esc_html_e('Selected categories only', 'plogins-rapid'); ?>
                                         </option>
                                     </select>
                                     <p class="description">
-                                        <?php esc_html_e('Limits what customers can search and add. Leave on "All products" for a general reorder form, or pick categories to scope it to one range (for example wholesale lines only).', 'rapid'); ?>
+                                        <?php esc_html_e('Limits what customers can search and add. Leave on "All products" for a general reorder form, or pick categories to scope it to one range (for example wholesale lines only).', 'plogins-rapid'); ?>
                                     </p>
                                 </td>
                             </tr>
@@ -178,14 +178,14 @@ final class Settings implements HasHooks
                                 <?php echo 'categories' === $scope ? '' : 'data-hidden="1"'; ?>
                             >
                                 <th scope="row">
-                                    <?php esc_html_e('Categories', 'rapid'); ?>
+                                    <?php esc_html_e('Categories', 'plogins-rapid'); ?>
                                 </th>
                                 <td>
                                     <?php if ([] === $categories) : ?>
-                                        <p class="description"><?php esc_html_e('No product categories found yet.', 'rapid'); ?></p>
+                                        <p class="description"><?php esc_html_e('No product categories found yet.', 'plogins-rapid'); ?></p>
                                     <?php else : ?>
                                         <fieldset class="rapid-categories">
-                                            <legend class="screen-reader-text"><?php esc_html_e('Product categories', 'rapid'); ?></legend>
+                                            <legend class="screen-reader-text"><?php esc_html_e('Product categories', 'plogins-rapid'); ?></legend>
                                             <?php foreach ($categories as $rapid_term) : ?>
                                                 <label class="rapid-category">
                                                     <input
@@ -199,7 +199,7 @@ final class Settings implements HasHooks
                                             <?php endforeach; ?>
                                         </fieldset>
                                         <p class="description">
-                                            <?php esc_html_e('Only products in the ticked categories appear in the form. Tick none and the form falls back to showing all products.', 'rapid'); ?>
+                                            <?php esc_html_e('Only products in the ticked categories appear in the form. Tick none and the form falls back to showing all products.', 'plogins-rapid'); ?>
                                         </p>
                                     <?php endif; ?>
                                 </td>
@@ -209,37 +209,37 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="rapid-card">
-                    <h2><?php esc_html_e('Columns', 'rapid'); ?></h2>
-                    <p class="description"><?php esc_html_e('Choose which columns appear in the order table. Product name and quantity are always shown, for example:', 'rapid'); ?></p>
+                    <h2><?php esc_html_e('Columns', 'plogins-rapid'); ?></h2>
+                    <p class="description"><?php esc_html_e('Choose which columns appear in the order table. Product name and quantity are always shown, for example:', 'plogins-rapid'); ?></p>
                     <div class="rapid-preview" aria-hidden="true">
                         <div class="rapid-preview-head">
-                            <span><?php esc_html_e('Product', 'rapid'); ?></span>
-                            <span><?php esc_html_e('Qty', 'rapid'); ?></span>
+                            <span><?php esc_html_e('Product', 'plogins-rapid'); ?></span>
+                            <span><?php esc_html_e('Qty', 'plogins-rapid'); ?></span>
                         </div>
                         <div class="rapid-preview-row">
-                            <span><?php esc_html_e('Espresso beans, 1 kg', 'rapid'); ?></span>
+                            <span><?php esc_html_e('Espresso beans, 1 kg', 'plogins-rapid'); ?></span>
                             <span>2</span>
                         </div>
                     </div>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <?php
-                            $this->checkboxRow('show_image', __('Image', 'rapid'), __('Show a product thumbnail.', 'rapid'), $settings);
-                            $this->checkboxRow('show_sku', __('SKU', 'rapid'), __('Show the product SKU.', 'rapid'), $settings);
-                            $this->checkboxRow('show_price', __('Price', 'rapid'), __('Show the product price.', 'rapid'), $settings);
-                            $this->checkboxRow('show_stock', __('Stock', 'rapid'), __('Show stock availability.', 'rapid'), $settings);
+                            $this->checkboxRow('show_image', __('Image', 'plogins-rapid'), __('Show a product thumbnail.', 'plogins-rapid'), $settings);
+                            $this->checkboxRow('show_sku', __('SKU', 'plogins-rapid'), __('Show the product SKU.', 'plogins-rapid'), $settings);
+                            $this->checkboxRow('show_price', __('Price', 'plogins-rapid'), __('Show the product price.', 'plogins-rapid'), $settings);
+                            $this->checkboxRow('show_stock', __('Stock', 'plogins-rapid'), __('Show stock availability.', 'plogins-rapid'), $settings);
                             ?>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="rapid-card">
-                    <h2><?php esc_html_e('Search', 'rapid'); ?></h2>
+                    <h2><?php esc_html_e('Search', 'plogins-rapid'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="rapid_per_page"><?php esc_html_e('Results per page', 'rapid'); ?></label>
+                                    <label for="rapid_per_page"><?php esc_html_e('Results per page', 'plogins-rapid'); ?></label>
                                 </th>
                                 <td>
                                     <input
@@ -256,7 +256,7 @@ final class Settings implements HasHooks
                                         <?php
                                         printf(
                                             /* translators: 1: minimum, 2: maximum */
-                                            esc_html__('How many matches to show before customers load more. Lower keeps the form compact and quick; higher shows more at once. Between %1$d and %2$d.', 'rapid'),
+                                            esc_html__('How many matches to show before customers load more. Lower keeps the form compact and quick; higher shows more at once. Between %1$d and %2$d.', 'plogins-rapid'),
                                             (int) self::MIN_PER_PAGE,
                                             (int) self::MAX_PER_PAGE,
                                         );
