@@ -1,11 +1,11 @@
-=== Rapid - Quick Order Form for WooCommerce ===
+=== Plogins Rapid for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, quick order, bulk order, b2b, wholesale
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,16 +20,15 @@ products to the cart in a **single submit**, no clicking through product pages.
 It is built for B2B, wholesale, trade and reorder workflows, where buyers know
 what they want and value speed over browsing.
 
-The code lives on GitHub at https://github.com/wppoland/rapid; that is the
+The code lives on GitHub at https://github.com/wppoland/plogins-rapid; that is the
 place to read the source, file a bug or send a patch.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/rapid/docs/
-* **Plugin page** - https://plogins.com/rapid/
-* **Source code** - https://github.com/wppoland/rapid
-* **Bug reports and feature requests** - https://github.com/wppoland/rapid/issues
-* **Discussions and questions** - https://github.com/wppoland/rapid/discussions
+* **Documentation** - https://plogins.com/plogins-rapid/docs/
+* **Plugin page** - https://plogins.com/plogins-rapid/
+* **Source code** - https://github.com/wppoland/plogins-rapid
+* **Bug reports and feature requests** - https://github.com/wppoland/plogins-rapid/issues
 
 
 = Features =
@@ -95,6 +94,9 @@ No. The form works for guests and logged-in customers; cart behaviour follows yo
 Rapid does not connect to any external services. The live product search runs against your own store: the form posts to your site's `admin-ajax.php` and queries your existing WooCommerce products by name or SKU, and the batched add-to-cart uses WooCommerce's own cart. Rapid stores only two options in your WordPress database (`rapid_settings` and `rapid_db_version`); it creates no custom tables and sends no email.
 
 == Changelog ==
+
+= 0.1.4 =
+* Renamed to Plogins Rapid for WooCommerce for a more distinctive plugin name.
 
 = 0.1.3 =
 * `rapid/order_settings` filter and `rapid/form_fields` action for PRO per-role quick-order forms.

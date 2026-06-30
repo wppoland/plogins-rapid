@@ -47,12 +47,12 @@ $rapid_context    = isset($context) && is_array($context) ? $context : ['user_id
         do_action('rapid/form_fields', $settings, $rapid_context);
         ?>
         <p class="rapid__search-field">
-            <label for="rapid-search"><?php esc_html_e('Search products', 'rapid'); ?></label>
+            <label for="rapid-search"><?php esc_html_e('Search products', 'plogins-rapid'); ?></label>
             <input
                 type="search"
                 id="rapid-search"
                 class="rapid__search"
-                placeholder="<?php esc_attr_e('Search by name or SKU…', 'rapid'); ?>"
+                placeholder="<?php esc_attr_e('Search by name or SKU…', 'plogins-rapid'); ?>"
                 autocomplete="off"
             />
         </p>
@@ -67,33 +67,33 @@ $rapid_context    = isset($context) && is_array($context) ? $context : ['user_id
             <thead role="rowgroup">
                 <tr role="row">
                     <?php if ($rapid_show_image) : ?>
-                        <th scope="col" role="columnheader" class="rapid__col-image"><span class="screen-reader-text"><?php esc_html_e('Image', 'rapid'); ?></span></th>
+                        <th scope="col" role="columnheader" class="rapid__col-image"><span class="screen-reader-text"><?php esc_html_e('Image', 'plogins-rapid'); ?></span></th>
                     <?php endif; ?>
-                    <th scope="col" role="columnheader" class="rapid__col-name"><?php esc_html_e('Product', 'rapid'); ?></th>
+                    <th scope="col" role="columnheader" class="rapid__col-name"><?php esc_html_e('Product', 'plogins-rapid'); ?></th>
                     <?php if ($rapid_show_sku) : ?>
-                        <th scope="col" role="columnheader" class="rapid__col-sku"><?php esc_html_e('SKU', 'rapid'); ?></th>
+                        <th scope="col" role="columnheader" class="rapid__col-sku"><?php esc_html_e('SKU', 'plogins-rapid'); ?></th>
                     <?php endif; ?>
                     <?php if ($rapid_show_price) : ?>
-                        <th scope="col" role="columnheader" class="rapid__col-price"><?php esc_html_e('Price', 'rapid'); ?></th>
+                        <th scope="col" role="columnheader" class="rapid__col-price"><?php esc_html_e('Price', 'plogins-rapid'); ?></th>
                     <?php endif; ?>
                     <?php if ($rapid_show_stock) : ?>
-                        <th scope="col" role="columnheader" class="rapid__col-stock"><?php esc_html_e('Stock', 'rapid'); ?></th>
+                        <th scope="col" role="columnheader" class="rapid__col-stock"><?php esc_html_e('Stock', 'plogins-rapid'); ?></th>
                     <?php endif; ?>
-                    <th scope="col" role="columnheader" class="rapid__col-qty"><?php esc_html_e('Quantity', 'rapid'); ?></th>
+                    <th scope="col" role="columnheader" class="rapid__col-qty"><?php esc_html_e('Quantity', 'plogins-rapid'); ?></th>
                 </tr>
             </thead>
             <tbody class="rapid__body" role="rowgroup">
                 <?php if ([] === $products) : ?>
                     <tr class="rapid__empty-row" role="row">
                         <td colspan="<?php echo esc_attr((string) $columns); ?>" role="cell">
-                            <?php esc_html_e('No products are available to order yet.', 'rapid'); ?>
+                            <?php esc_html_e('No products are available to order yet.', 'plogins-rapid'); ?>
                         </td>
                     </tr>
                 <?php else : ?>
                     <?php foreach ($products as $rapid_product) : ?>
                         <tr class="rapid__row" role="row">
                             <?php if ($rapid_show_image) : ?>
-                                <td class="rapid__col-image" role="cell" data-label="<?php esc_attr_e('Image', 'rapid'); ?>">
+                                <td class="rapid__col-image" role="cell" data-label="<?php esc_attr_e('Image', 'plogins-rapid'); ?>">
                                     <img
                                         src="<?php echo esc_url((string) $rapid_product['imageUrl']); ?>"
                                         alt=""
@@ -104,7 +104,7 @@ $rapid_context    = isset($context) && is_array($context) ? $context : ['user_id
                                     />
                                 </td>
                             <?php endif; ?>
-                            <td class="rapid__col-name" role="cell" data-label="<?php esc_attr_e('Product', 'rapid'); ?>">
+                            <td class="rapid__col-name" role="cell" data-label="<?php esc_attr_e('Product', 'plogins-rapid'); ?>">
                                 <?php if ('' !== (string) $rapid_product['permalink']) : ?>
                                     <a href="<?php echo esc_url((string) $rapid_product['permalink']); ?>"><?php echo esc_html((string) $rapid_product['name']); ?></a>
                                 <?php else : ?>
@@ -112,19 +112,19 @@ $rapid_context    = isset($context) && is_array($context) ? $context : ['user_id
                                 <?php endif; ?>
                             </td>
                             <?php if ($rapid_show_sku) : ?>
-                                <td class="rapid__col-sku" role="cell" data-label="<?php esc_attr_e('SKU', 'rapid'); ?>"><?php echo esc_html((string) $rapid_product['sku']); ?></td>
+                                <td class="rapid__col-sku" role="cell" data-label="<?php esc_attr_e('SKU', 'plogins-rapid'); ?>"><?php echo esc_html((string) $rapid_product['sku']); ?></td>
                             <?php endif; ?>
                             <?php if ($rapid_show_price) : ?>
-                                <td class="rapid__col-price" role="cell" data-label="<?php esc_attr_e('Price', 'rapid'); ?>"><?php echo wp_kses_post((string) $rapid_product['priceHtml']); ?></td>
+                                <td class="rapid__col-price" role="cell" data-label="<?php esc_attr_e('Price', 'plogins-rapid'); ?>"><?php echo wp_kses_post((string) $rapid_product['priceHtml']); ?></td>
                             <?php endif; ?>
                             <?php if ($rapid_show_stock) : ?>
-                                <td class="rapid__col-stock" role="cell" data-label="<?php esc_attr_e('Stock', 'rapid'); ?>"><?php echo esc_html((string) $rapid_product['stockHtml']); ?></td>
+                                <td class="rapid__col-stock" role="cell" data-label="<?php esc_attr_e('Stock', 'plogins-rapid'); ?>"><?php echo esc_html((string) $rapid_product['stockHtml']); ?></td>
                             <?php endif; ?>
-                            <td class="rapid__col-qty" role="cell" data-label="<?php esc_attr_e('Quantity', 'rapid'); ?>">
+                            <td class="rapid__col-qty" role="cell" data-label="<?php esc_attr_e('Quantity', 'plogins-rapid'); ?>">
                                 <label class="screen-reader-text" for="rapid-qty-<?php echo esc_attr((string) $rapid_product['id']); ?>">
                                     <?php
                                     /* translators: %s: product name */
-                                    echo esc_html(sprintf(__('Quantity for %s', 'rapid'), (string) $rapid_product['name']));
+                                    echo esc_html(sprintf(__('Quantity for %s', 'plogins-rapid'), (string) $rapid_product['name']));
                                     ?>
                                 </label>
                                 <input
@@ -147,11 +147,11 @@ $rapid_context    = isset($context) && is_array($context) ? $context : ['user_id
 
         <div class="rapid__actions">
             <button type="submit" name="rapid_submit" value="1" class="button alt rapid__submit">
-                <?php esc_html_e('Add selected to cart', 'rapid'); ?>
+                <?php esc_html_e('Add selected to cart', 'plogins-rapid'); ?>
             </button>
             <span class="rapid__tally" aria-live="polite">
                 <span class="rapid__tally-count">0</span>
-                <?php esc_html_e('lines queued', 'rapid'); ?>
+                <?php esc_html_e('lines queued', 'plogins-rapid'); ?>
             </span>
         </div>
     </form>
