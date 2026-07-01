@@ -1,4 +1,4 @@
-=== Plogins Rapid for WooCommerce ===
+=== Plogins Rapid - Quick Order for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, quick order, bulk order, b2b, wholesale
 Requires at least: 6.5
