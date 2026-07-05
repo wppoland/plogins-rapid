@@ -12,6 +12,7 @@ declare(strict_types=1);
 use Rapid\Admin\Settings;
 use Rapid\Container;
 use Rapid\Migrator;
+use Rapid\Service\ElementorWidgets;
 use Rapid\Service\OrderForm;
 
 defined('ABSPATH') || exit;
@@ -22,6 +23,9 @@ return static function (Container $c): void {
     // Storefront: the [rapid_order] quick-order form, AJAX product search and
     // the batched add-to-cart handler.
     $c->singleton(OrderForm::class, static fn (): OrderForm => new OrderForm());
+
+    // Elementor integration (self-guards on the elementor/widgets/register hook).
+    $c->singleton(ElementorWidgets::class, static fn (): ElementorWidgets => new ElementorWidgets());
 
     // Admin (only needed in wp-admin context).
     if (is_admin()) {
