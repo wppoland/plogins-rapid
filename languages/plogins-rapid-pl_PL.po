@@ -12,10 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Domain: plogins-rapid\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
-"|| n%100>14) ? 1 : 2);\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
 #: rapid.php
@@ -70,8 +69,8 @@ msgstr "Szybki formularz zamówień zbiorczych dla Twojego sklepu"
 #, php-format
 msgid ""
 "Drop %s into any page to let customers search products by name or SKU, set "
-"quantities and add many to the cart in one click, perfect for B2B, "
-"wholesale and reorders."
+"quantities and add many to the cart in one click, perfect for B2B, wholesale"
+" and reorders."
 msgstr ""
 "Umieść %s na dowolnej stronie, aby klienci mogli wyszukiwać produkty po "
 "nazwie lub SKU, ustawiać ilości i dodawać wiele pozycji do koszyka jednym "
@@ -91,9 +90,12 @@ msgstr "Wyświetlaj szybki formularz zamówień w sklepie."
 
 #: src/Admin/Settings.php:142
 msgid ""
-"When off, the shortcode renders nothing, handy while you set things up. "
-"Turn it on once you are ready for customers to use it."
+"When off, the shortcode renders nothing, handy while you set things up. Turn"
+" it on once you are ready for customers to use it."
 msgstr ""
+"Gdy jest wyłączony, krótki kod nic nie renderuje, co jest przydatne podczas "
+"konfigurowania. Włącz go, gdy będziesz gotowy, aby klienci mogli z niego "
+"korzystać."
 
 #: src/Admin/Settings.php:151
 msgid "Product scope"
@@ -117,6 +119,10 @@ msgid ""
 "general reorder form, or pick categories to scope it to one range (for "
 "example wholesale lines only)."
 msgstr ""
+"Ogranicza to, co klienci mogą wyszukiwać i dodawać. Pozostaw opcję "
+"„Wszystkie produkty”, aby uzyskać ogólny formularz ponownego zamówienia, lub"
+" wybierz kategorie, aby zawęzić je do jednego zakresu (na przykład tylko "
+"linie hurtowe)."
 
 #: src/Admin/Settings.php:181
 msgid "Categories"
@@ -132,9 +138,11 @@ msgstr "Kategorie produktów"
 
 #: src/Admin/Settings.php:202
 msgid ""
-"Only products in the ticked categories appear in the form. Tick none and the "
-"form falls back to showing all products."
+"Only products in the ticked categories appear in the form. Tick none and the"
+" form falls back to showing all products."
 msgstr ""
+"W formularzu pojawiają się wyłącznie produkty z zaznaczonych kategorii. Nie "
+"zaznaczaj żadnego, a formularz powróci do wyświetlania wszystkich produktów."
 
 #: src/Admin/Settings.php:212
 msgid "Columns"
@@ -145,6 +153,8 @@ msgid ""
 "Choose which columns appear in the order table. Product name and quantity "
 "are always shown, for example:"
 msgstr ""
+"Wybierz, które kolumny pojawią się w tabeli zamówień. Zawsze wyświetlana "
+"jest nazwa produktu i ilość, na przykład:"
 
 #: src/Admin/Settings.php:216 templates/order-form.php:61
 #: templates/order-form.php:96
@@ -153,11 +163,11 @@ msgstr "Produkt"
 
 #: src/Admin/Settings.php:217
 msgid "Qty"
-msgstr ""
+msgstr "Ilość"
 
 #: src/Admin/Settings.php:220
 msgid "Espresso beans, 1 kg"
-msgstr ""
+msgstr "Ziarna espresso, 1 kg"
 
 #: src/Admin/Settings.php:227 templates/order-form.php:59
 #: templates/order-form.php:85
@@ -210,6 +220,8 @@ msgid ""
 "How many matches to show before customers load more. Lower keeps the form "
 "compact and quick; higher shows more at once. Between %1$d and %2$d."
 msgstr ""
+"Ile dopasowań wyświetlić, zanim klienci załadują więcej. Niższy utrzymuje "
+"formę zwartą i szybką; wyższa pokazuje więcej na raz. Pomiędzy %1$d a %2$d."
 
 #: src/Service/OrderForm.php:86
 msgid "Searching…"
@@ -298,14 +310,14 @@ msgstr "Dodaj zaznaczone do koszyka"
 
 #: templates/order-form.php:143
 msgid "lines queued"
-msgstr ""
+msgstr "pozycji w kolejce"
 
 #~ msgid ""
 #~ "Choose which columns appear in the order table. Product name and quantity "
 #~ "are always shown."
 #~ msgstr ""
-#~ "Wybierz, które kolumny mają się pojawiać w tabeli zamówień. Nazwa "
-#~ "produktu i ilość są wyświetlane zawsze."
+#~ "Wybierz, które kolumny mają się pojawiać w tabeli zamówień. Nazwa produktu i"
+#~ " ilość są wyświetlane zawsze."
 
 #, php-format
 #~ msgid "Between %1$d and %2$d."
