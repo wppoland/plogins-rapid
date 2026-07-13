@@ -8,56 +8,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: plogins-i18n\n"
 
-msgid "Requires Plugins: woocommerce"
-msgstr "Erfordert Plugins: woocommerce"
-
 msgid "A fast bulk order form so B2B and wholesale buyers can add many products at once."
 msgstr "Ein schnelles Sammelbestellformular, damit B2B- und Großhandelskäufer viele Produkte gleichzeitig hinzufügen können."
 
 msgid "Rapid adds a searchable quick-order form to your WooCommerce store. Customers\nfind products by <strong>name or SKU<strong>, set quantities in a compact table and add many products to the cart in a </strong>single submit</strong>, no clicking through product pages."
-msgstr "Rapid fügt deinem WooCommerce-Shop ein durchsuchbares Schnellbestellformular hinzu. Kunden\nFindest du Produkte nach <strong>Name oder SKU<strong>, lege Mengen in einer kompakten Tabelle fest und lege viele Produkte in einem einzigen </strong>Einreichen</strong> in den Warenkorb, ohne sich durch die Produktseiten klicken zu müssen."
+msgstr "Rapid fügt deinem WooCommerce-Shop ein durchsuchbares Schnellbestellformular hinzu. Kunden\nfinden Produkte nach <strong>Name oder SKU</strong>, legen Mengen in einer kompakten Tabelle fest und fügen in einem\n<strong>einzigen Absenden</strong> viele Produkte in den Warenkorb – ohne sich durch Produktseiten zu klicken."
 
 msgid "It is built for B2B, wholesale, trade and reorder workflows, where buyers know\nwhat they want and value speed over browsing."
-msgstr "Es ist für B2B-, Großhandels-, Handels- und Nachbestellungsabläufe konzipiert, bei denen Käufer Bescheid wissen\nwas sie wollen und legen Wert auf Geschwindigkeit statt Surfen."
+msgstr "Es ist für B2B-, Großhandels-, Handels- und Nachbestell-Abläufe konzipiert, bei denen Käufer wissen,\nwas sie wollen, und Geschwindigkeit höher schätzen als das Stöbern."
 
 msgid "The code lives on GitHub at https://github.com/wppoland/plogins-rapid; that is the\nplace to read the source, file a bug or send a patch."
-msgstr "Der Code befindet sich auf GitHub unter https://github.com/wppoland/plogins-rapid; das ist das\nHier kannst du die Quelle lesen, einen Fehler melden oder einen Patch senden."
+msgstr "Der Code liegt auf GitHub unter https://github.com/wppoland/plogins-rapid; das ist der\nOrt, um den Quellcode zu lesen, einen Fehler zu melden oder einen Patch zu senden."
 
 msgid "* <strong>Documentation</strong> - https://plogins.com/plogins-rapid/docs/\n* <strong>Plugin page</strong> - https://plogins.com/plogins-rapid/\n* <strong>Source code</strong> - https://github.com/wppoland/plogins-rapid\n* <strong>Bug reports and feature requests</strong> - https://github.com/wppoland/plogins-rapid/issues"
-msgstr "* <strong>Dokumentation</strong> - https://plogins.com/de/plogins-rapid/docs/\n* <strong>Plugin-Seite</strong> - https://plogins.com/de/plogins-rapid/\n* <strong>Quellcode</strong> – https://github.com/wppoland/plogins-rapid\n* <strong>Fehlerberichte und Funktionsanfragen</strong> – https://github.com/wppoland/plogins-rapid/issues"
+msgstr "* <strong>Dokumentation</strong> - https://plogins.com/de/plogins-rapid/docs/\n* <strong>Plugin-Seite</strong> - https://plogins.com/de/plogins-rapid/\n* <strong>Quellcode</strong> - https://github.com/wppoland/plogins-rapid\n* <strong>Fehlerberichte und Funktionswünsche</strong> - https://github.com/wppoland/plogins-rapid/issues"
 
 msgid "* A `[rapid_order]` shortcode that renders a searchable product table/form.\n* Live AJAX product search by name or SKU (debounced, no page reload).\n* Configurable product scope: <strong>all products</strong> or <strong>selected categories only</strong>.\n* Batched add-to-cart: set quantities on many products and add them all in one submit, with a notice summarising how many went into the cart.\n* Choose which columns to show: image, SKU, price, stock.\n* Configurable search results per page.\n* Works without JavaScript: the first page of products renders as a plain table and the submit still batches into the cart.\n* Accessible, mobile-friendly markup (the table collapses to cards on small screens), visible focus states and screen-reader labels.\n* Translation ready (POT included) and clean uninstall.\n* HPOS and cart/checkout blocks compatible."
-msgstr "* Ein „[rapid_order]“-Shortcode, der eine durchsuchbare Produkttabelle/ein durchsuchbares Produktformular rendert.\n* Live-AJAX-Produktsuche nach Name oder SKU (entprellt, kein Neuladen der Seite).\n* Konfigurierbarer Produktumfang: <strong>alle Produkte</strong> oder <strong>nur ausgewählte Kategorien</strong>.\n* Batch-Add-to-Cart: Lege Mengen für viele Produkte fest und füge sie alle in einem Übermittlungsvorgang hinzu, mit einer Benachrichtigung, die zusammenfasst, wie viele Produkte in den Warenkorb gelegt wurden.\n* Wähle aus, welche Spalten angezeigt werden sollen: Bild, SKU, Preis, Lagerbestand.\n* Konfigurierbare Suchergebnisse pro Seite.\n* Funktioniert ohne JavaScript: Die erste Seite der Produkte wird als einfache Tabelle dargestellt und die Übermittlung erfolgt weiterhin stapelweise im Warenkorb.\n* Zugängliches, mobilfreundliches Markup (die Tabelle wird auf kleinen Bildschirmen zu Karten zusammengeklappt), sichtbare Fokuszustände und Screenreader-Beschriftungen.\n* Übersetzungsbereit (POT enthalten) und saubere Deinstallation.\n* Kompatibel mit HPOS und Warenkorb-/Kassenblöcken."
+msgstr "* Ein `[rapid_order]`-Shortcode, der eine durchsuchbare Produkttabelle bzw. ein durchsuchbares Formular rendert.\n* Live-AJAX-Produktsuche nach Name oder SKU (entprellt, kein Neuladen der Seite).\n* Konfigurierbarer Produktumfang: <strong>alle Produkte</strong> oder <strong>nur ausgewählte Kategorien</strong>.\n* Gebündeltes In-den-Warenkorb-Legen: Lege Mengen für viele Produkte fest und füge sie alle in einem Absenden hinzu, mit einem Hinweis, der zusammenfasst, wie viele in den Warenkorb gelegt wurden.\n* Wähle, welche Spalten angezeigt werden: Bild, SKU, Preis, Lagerbestand.\n* Konfigurierbare Suchergebnisse pro Seite.\n* Funktioniert ohne JavaScript: Die erste Produktseite wird als einfache Tabelle dargestellt, und das Absenden legt die Produkte weiterhin gebündelt in den Warenkorb.\n* Barrierefreies, mobilfreundliches Markup (die Tabelle klappt auf kleinen Bildschirmen zu Karten zusammen), sichtbare Fokuszustände und Screenreader-Beschriftungen.\n* Übersetzungsbereit (POT enthalten) und saubere Deinstallation.\n* Kompatibel mit HPOS und Warenkorb-/Kassen-Blöcken."
 
 msgid "Create a page (e.g. \"Quick Order\") and add the shortcode:"
 msgstr "Erstelle eine Seite (z. B. „Schnellbestellung“) und füge den Shortcode hinzu:"
 
 msgid "1. Upload the plugin to `/wp-content/plugins/rapid`, or install via Plugins → Add New.\n2. Activate it. WooCommerce must be installed and active.\n3. Go to <strong>WooCommerce → Rapid</strong> to choose the product scope and which columns to show.\n4. Create a page with the `[rapid_order]` shortcode to host the form."
-msgstr "1. Lade das Plugin nach „/wp-content/plugins/rapid“ hoch oder installiere es über Plugins → Neu hinzufügen.\n2. Aktiviere es. WooCommerce muss installiert und aktiv sein.\n3. Gehe zu <strong>WooCommerce → Rapid</strong>, um den Produktumfang und die anzuzeigenden Spalten auszuwählen.\n4. Erstelle eine Seite mit dem Shortcode „[rapid_order]“, um das Formular zu hosten."
+msgstr "1. Lade das Plugin nach `/wp-content/plugins/rapid` hoch oder installiere es über Plugins → Neu hinzufügen.\n2. Aktiviere es. WooCommerce muss installiert und aktiv sein.\n3. Gehe zu <strong>WooCommerce → Rapid</strong>, um den Produktumfang und die anzuzeigenden Spalten auszuwählen.\n4. Erstelle eine Seite mit dem `[rapid_order]`-Shortcode, um das Formular bereitzustellen."
 
 msgid "Yes. WooCommerce must be installed and active."
 msgstr "Ja. WooCommerce muss installiert und aktiv sein."
 
 msgid "Yes. Set the product scope to \"Selected categories only\" and tick the categories\nyou want to offer. Choose \"All products\" to cover the whole catalogue."
-msgstr "Ja. Stelle den Produktumfang auf „Nur ausgewählte Kategorien“ ein und kreuze die Kategorien an\nwas du anbieten möchtest. Wähle „Alle Produkte“, um den gesamten Katalog abzudecken."
+msgstr "Ja. Stelle den Produktumfang auf „Nur ausgewählte Kategorien“ und kreuze die Kategorien an,\ndie du anbieten möchtest. Wähle „Alle Produkte“, um den gesamten Katalog abzudecken."
 
 msgid "Yes. Without JavaScript the form shows the first page of in-scope products and the\nsubmit button still adds the selected quantities to the cart server-side. The\nlive search and category filter are progressive enhancements."
-msgstr "Ja. Ohne JavaScript zeigt das Formular die erste Seite der im Geltungsbereich enthaltenen Produkte und die\nWenn du auf die Schaltfläche „Senden“ klicken, werden die ausgewählten Mengen weiterhin serverseitig zum Warenkorb hinzugefügt. Die\nLive-Suche und Kategoriefilter sind progressive Verbesserungen."
+msgstr "Ja. Ohne JavaScript zeigt das Formular die erste Seite der Produkte im Umfang, und der\nAbsende-Button legt die ausgewählten Mengen weiterhin serverseitig in den Warenkorb.\nDie Live-Suche und der Kategoriefilter sind progressive Erweiterungen."
 
 msgid "Enter a quantity for each product you want, then click \"Add selected to cart\".\nEvery product with a quantity is added in one submit, and you get a notice\nsaying how many were added (and how many, if any, could not be)."
-msgstr "Gib für jedes gewünschte Produkt eine Menge ein und klicke dann auf „Ausgewählte Produkte in den Warenkorb legen“.\nJedes Produkt mit einer bestimmten Menge wird in einem Übermittlungsvorgang hinzugefügt und Du erhältst eine Benachrichtigung\nAngabe, wie viele hinzugefügt wurden (und wie viele, wenn überhaupt, nicht möglich waren)."
+msgstr "Gib für jedes gewünschte Produkt eine Menge ein und klicke dann auf „Ausgewählte in den Warenkorb legen“.\nJedes Produkt mit einer Menge wird in einem Absenden hinzugefügt, und du erhältst einen Hinweis,\nder angibt, wie viele hinzugefügt wurden (und wie viele, falls überhaupt, nicht möglich waren)."
 
 msgid "No. The form works for guests and logged-in customers; cart behaviour follows your normal WooCommerce guest-checkout settings."
-msgstr "Nein. Das Formular funktioniert für Gäste und eingeloggte Kunden; Das Warenkorbverhalten folgt deinen normalen WooCommerce-Gast-Checkout-Einstellungen."
+msgstr "Nein. Das Formular funktioniert für Gäste und eingeloggte Kunden; das Warenkorb-Verhalten folgt deinen normalen WooCommerce-Einstellungen für den Gast-Checkout."
 
 msgid "Yes. This plugin is compatible with WordPress Multisite. Network activate it or activate it on individual sites; each site keeps its own settings and data."
-msgstr "Ja. Dieses Plugin ist mit WordPress Multisite kompatibel. Aktiviere es im Netzwerk oder auf einzelnen Websites. Jede Site behält ihre eigenen Einstellungen und Daten."
+msgstr "Ja. Dieses Plugin ist mit WordPress Multisite kompatibel. Aktiviere es netzwerkweit oder auf einzelnen Websites; jede Website behält ihre eigenen Einstellungen und Daten."
 
 msgid "1. The quick order form with live search and quantity inputs.\n2. The Rapid settings screen under WooCommerce."
 msgstr "1. Das Schnellbestellformular mit Live-Suche und Mengeneingaben.\n2. Der Rapid-Einstellungsbildschirm unter WooCommerce."
 
 msgid "Rapid does not connect to any external services. The live product search runs against your own store: the form posts to your site's `admin-ajax.php` and queries your existing WooCommerce products by name or SKU, and the batched add-to-cart uses WooCommerce's own cart. Rapid stores only two options in your WordPress database (`rapid_settings` and `rapid_db_version`); it creates no custom tables and sends no email."
-msgstr "Rapid stellt keine Verbindung zu externen Diensten her. Die Live-Produktsuche wird für deinen eigenen Shop ausgeführt: Das Formular sendet Beiträge an die Datei „admin-ajax.php“ deiner Website und fragt deine vorhandenen WooCommerce-Produkte nach Name oder SKU ab. Die Batch-Add-to-Cart-Funktion verwendet den eigenen Warenkorb von WooCommerce. Rapid speichert nur zwei Optionen in deiner WordPress-Datenbank („rapid_settings“ und „rapid_db_version“); Es werden keine benutzerdefinierten Tabellen erstellt und keine E-Mails gesendet."
+msgstr "Rapid stellt keine Verbindung zu externen Diensten her. Die Live-Produktsuche läuft gegen deinen eigenen Shop: Das Formular sendet an die Datei `admin-ajax.php` deiner Website und fragt deine vorhandenen WooCommerce-Produkte nach Name oder SKU ab, und das gebündelte In-den-Warenkorb-Legen nutzt den eigenen Warenkorb von WooCommerce. Rapid speichert nur zwei Optionen in deiner WordPress-Datenbank (`rapid_settings` und `rapid_db_version`); es erstellt keine eigenen Tabellen und sendet keine E-Mails."
+
+msgid "Plogins Rapid includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-rapid`, so WordPress.org language packs can also override or extend these bundled translations."
+msgstr "Plogins Rapid enthält deutsche, polnische und spanische Übersetzungen für die Plugin-Oberfläche. Die Textdomain ist `plogins-rapid`, sodass Sprachpakete von WordPress.org diese mitgelieferten Übersetzungen ebenfalls überschreiben oder erweitern können."
+
+msgid "* Added bundled Polish, German and Spanish translations for the plugin interface."
+msgstr "* Mitgelieferte deutsche, polnische und spanische Übersetzungen für die Plugin-Oberfläche hinzugefügt."
 
 msgid "* First stable release."
 msgstr "* Erste stabile Version."
@@ -66,14 +69,14 @@ msgid "* Renamed to Plogins Rapid for WooCommerce for a more distinctive plugin 
 msgstr "* Für einen eindeutigeren Plugin-Namen in Plogins Rapid für WooCommerce umbenannt."
 
 msgid "* `rapid/order_settings` filter and `rapid/form_fields` action for PRO per-role quick-order forms.\n* `OrderContext` helper exposes visitor role context to templates and filters."
-msgstr "* „rapid/order_settings“-Filter und „rapid/form_fields“-Aktion für PRO-Schnellbestellformulare pro Rolle.\n* Der „OrderContext“-Helfer stellt den Besucherrollenkontext für Vorlagen und Filter bereit."
+msgstr "* `rapid/order_settings`-Filter und `rapid/form_fields`-Aktion für PRO-Schnellbestellformulare pro Rolle.\n* Der `OrderContext`-Helfer stellt Vorlagen und Filtern den Rollenkontext des Besuchers bereit."
 
 msgid "* Add `rapid/product_price_html` filter so PRO and custom code can override prices in the quick-order table."
-msgstr "* Füge den Filter „rapid/product_price_html“ hinzu, damit PRO- und benutzerdefinierter Code die Preise in der Schnellbestelltabelle überschreiben können."
+msgstr "* `rapid/product_price_html`-Filter hinzugefügt, damit PRO und eigener Code die Preise in der Schnellbestelltabelle überschreiben können."
 
 msgid "* Add `rapid/bulk_paste_prefill` filter and `rapid/bulk_paste_form_extra` / `rapid/bulk_paste_after_form` actions for PRO bulk-paste integrations (saved SKU lists)."
-msgstr "* Füge den Filter „rapid/bulk_paste_prefill“ und die Aktionen „rapid/bulk_paste_form_extra“ / „rapid/bulk_paste_after_form“ für PRO-Masseneinfügungsintegrationen (gespeicherte SKU-Listen) hinzu."
+msgstr "* `rapid/bulk_paste_prefill`-Filter und die Aktionen `rapid/bulk_paste_form_extra` / `rapid/bulk_paste_after_form` für PRO-Masseneinfüge-Integrationen (gespeicherte SKU-Listen) hinzugefügt."
 
 msgid "* Initial release: `[rapid_order]` shortcode with AJAX product search by name or SKU, configurable product scope (all / selected categories), batched add-to-cart with a single notice, selectable columns (image / SKU / price / stock) and results-per-page."
-msgstr "* Erstveröffentlichung: Shortcode „[rapid_order]“ mit AJAX-Produktsuche nach Name oder SKU, konfigurierbarem Produktumfang (alle / ausgewählte Kategorien), gestapeltes Hinzufügen zum Warenkorb mit einem einzigen Hinweis, auswählbaren Spalten (Bild / SKU / Preis / Lagerbestand) und Ergebnissen pro Seite."
+msgstr "* Erstveröffentlichung: `[rapid_order]`-Shortcode mit AJAX-Produktsuche nach Name oder SKU, konfigurierbarem Produktumfang (alle / ausgewählte Kategorien), gebündeltes In-den-Warenkorb-Legen mit einem einzigen Hinweis, auswählbare Spalten (Bild / SKU / Preis / Lagerbestand) und Ergebnisse pro Seite."
 
