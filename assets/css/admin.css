@@ -98,26 +98,3 @@
 .rapid-categories-row[data-hidden="1"] {
     display: none;
 }
-
-@media (prefers-color-scheme: dark) {
-    .rapid-admin {
-        --rapid-card-bg: #1e1e1e;
-        --rapid-card-border: #3c3c3c;
-        --rapid-muted: #bbb;
-        /* Lift the amber so accent text clears AA on the dark card. */
-        --rapid-accent: #ff7a45;
-        --rapid-accent-edge: #ff7a45;
-    }
-
-    .rapid-intro {
-        background: linear-gradient(135deg, #2a1c14, #1e1e1e);
-    }
-
-    .rapid-intro code {
-        background: rgba(255, 122, 69, 0.14);
-    }
-
-    .rapid-preview-head {
-        background: #2a2a2a;
-    }
-}
