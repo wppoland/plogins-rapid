@@ -1,5 +1,5 @@
 /**
- * Rapid — admin settings progressive enhancement.
+ * Rapid, admin settings progressive enhancement.
  *
  * Shows or hides the category picker based on the selected product scope.
  * No dependencies.

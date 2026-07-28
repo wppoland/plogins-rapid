@@ -1,12 +1,12 @@
 /**
- * Rapid — admin settings styles. Cards and a polished, dark-mode-aware layout.
+ * Rapid, admin settings styles. Cards and a polished, dark-mode-aware layout.
  */
 
 .rapid-admin {
     --rapid-card-bg: #fff;
     --rapid-card-border: #dcdcde;
     --rapid-muted: #50575e;
-    /* Family accent — the storefront's rush-amber, kept restrained in admin.
+    /* Family accent, the storefront's rush-amber, kept restrained in admin.
        #a8330a clears WCAG AA for text (6.68:1 on #fff, 5.87:1 on #f0f0f1);
        #cf4209 is used only as a >=3:1 UI edge (section border / shortcode). */
     --rapid-accent: #a8330a;
@@ -100,7 +100,7 @@
 }
 
 /* ------------------------------------------------------------------ *
- * PRO upsell — dismissible banner, sidebar promo, "what PRO adds"
+ * PRO upsell, dismissible banner, sidebar promo, "what PRO adds"
  * locked cards. Pure advertising (no disabled inputs), scoped to
  * .rapid-admin. Uses the family amber accent: #a8330a clears WCAG AA
  * behind white button text (6.68:1 on #fff); #cf4209 is a >=3:1 UI edge

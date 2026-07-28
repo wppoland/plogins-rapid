@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Rapid fügt deinem WooCommerce-Shop ein durchsuchbares Schnellbestellformular hinzu. Kunden\n"
 "finden Produkte nach <strong>Name oder SKU</strong>, legen Mengen in einer kompakten Tabelle fest und fügen in einem\n"
-"<strong>einzigen Absenden</strong> viele Produkte in den Warenkorb – ohne sich durch Produktseiten zu klicken."
+"<strong>einzigen Absenden</strong> viele Produkte in den Warenkorb, ohne sich durch Produktseiten zu klicken."
 
 msgid ""
 "It is built for B2B, wholesale, trade and reorder workflows, where buyers know\n"

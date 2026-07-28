@@ -1,5 +1,5 @@
 /**
- * Rapid — storefront quick-order form.
+ * Rapid, storefront quick-order form.
  *
  * Progressive enhancement: the form works without JavaScript (it renders the
  * first page of products and the submit batches them server-side). This script

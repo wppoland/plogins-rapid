@@ -15,7 +15,7 @@ Ein schnelles Sammelbestellformular, damit B2B- und Großhandelskäufer viele Pr
 
 Rapid fügt deinem WooCommerce-Shop ein durchsuchbares Schnellbestellformular hinzu. Kunden
 finden Produkte nach <strong>Name oder SKU</strong>, legen Mengen in einer kompakten Tabelle fest und fügen in einem
-<strong>einzigen Absenden</strong> viele Produkte in den Warenkorb – ohne sich durch Produktseiten zu klicken.
+<strong>einzigen Absenden</strong> viele Produkte in den Warenkorb, ohne sich durch Produktseiten zu klicken.
 
 Es ist für B2B-, Großhandels-, Handels- und Nachbestell-Abläufe konzipiert, bei denen Käufer wissen,
 was sie wollen, und Geschwindigkeit höher schätzen als das Stöbern.
