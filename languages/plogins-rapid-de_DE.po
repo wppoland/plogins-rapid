@@ -69,12 +69,12 @@ msgstr "Ein schnelles Sammelbestellformular für deinen Shop"
 #, php-format
 msgid ""
 "Drop %s into any page to let customers search products by name or SKU, set "
-"quantities and add many to the cart in one click, perfect for B2B, wholesale"
-" and reorders."
+"quantities and add many to the cart in one click, perfect for B2B, wholesale "
+"and reorders."
 msgstr ""
 "Füge %s auf einer beliebigen Seite ein, damit Kunden Produkte nach Namen "
-"oder SKU suchen, Mengen festlegen und viele mit einem Klick in den Warenkorb"
-" legen können – ideal für B2B, Großhandel und Nachbestellungen."
+"oder SKU suchen, Mengen festlegen und viele mit einem Klick in den Warenkorb "
+"legen können – ideal für B2B, Großhandel und Nachbestellungen."
 
 #: src/Admin/Settings.php:123
 msgid "General"
@@ -90,8 +90,8 @@ msgstr "Zeige das Schnellbestellformular im Schaufenster an."
 
 #: src/Admin/Settings.php:142
 msgid ""
-"When off, the shortcode renders nothing, handy while you set things up. Turn"
-" it on once you are ready for customers to use it."
+"When off, the shortcode renders nothing, handy while you set things up. Turn "
+"it on once you are ready for customers to use it."
 msgstr ""
 "Wenn die Funktion deaktiviert ist, rendert der Shortcode nichts, praktisch "
 "beim Einrichten. Schalte es ein, sobald du für die Nutzung durch Kunden "
@@ -138,11 +138,11 @@ msgstr "Produktkategorien"
 
 #: src/Admin/Settings.php:202
 msgid ""
-"Only products in the ticked categories appear in the form. Tick none and the"
-" form falls back to showing all products."
+"Only products in the ticked categories appear in the form. Tick none and the "
+"form falls back to showing all products."
 msgstr ""
-"Im Formular erscheinen nur Produkte in den angekreuzten Kategorien. Markiere"
-" „Keine“ und das Formular zeigt wieder alle Produkte an."
+"Im Formular erscheinen nur Produkte in den angekreuzten Kategorien. Markiere "
+"„Keine“ und das Formular zeigt wieder alle Produkte an."
 
 #: src/Admin/Settings.php:212
 msgid "Columns"
@@ -220,8 +220,8 @@ msgid ""
 "How many matches to show before customers load more. Lower keeps the form "
 "compact and quick; higher shows more at once. Between %1$d and %2$d."
 msgstr ""
-"Wie viele Übereinstimmungen werden angezeigt, bevor Kunden mehr laden? Unten"
-" bleibt die Form kompakt und schnell; Höher zeigt mehr auf einmal. Zwischen "
+"Wie viele Übereinstimmungen werden angezeigt, bevor Kunden mehr laden? Unten "
+"bleibt die Form kompakt und schnell; Höher zeigt mehr auf einmal. Zwischen "
 "%1$d und %2$d."
 
 #: src/Service/OrderForm.php:86
@@ -309,3 +309,63 @@ msgstr "Ausgewählte Artikel in den Warenkorb legen"
 #: templates/order-form.php:143
 msgid "lines queued"
 msgstr "Positionen in der Warteschlange"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Demnächst"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Demnächst"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr "ab %d zł/Jahr"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "ab %1$s%2$d/Jahr"
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr "Auf PRO upgraden"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr "Benachrichtige mich"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr "Benachrichtige mich"
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr "Zugriff verweigert."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr "Mehr erreichen mit %s"
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis ausblenden"
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr "Alle PRO-Funktionen freischalten"
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr "eine Lizenz, alle PRO-Funktionen"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
+msgstr "Was %s ergänzt"
