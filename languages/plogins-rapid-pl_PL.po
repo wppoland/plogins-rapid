@@ -12,7 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
+"|| n%100>14) ? 1 : 2);\n"
 "X-Domain: plogins-rapid\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -69,8 +70,8 @@ msgstr "Szybki formularz zamówień zbiorczych dla Twojego sklepu"
 #, php-format
 msgid ""
 "Drop %s into any page to let customers search products by name or SKU, set "
-"quantities and add many to the cart in one click, perfect for B2B, wholesale"
-" and reorders."
+"quantities and add many to the cart in one click, perfect for B2B, wholesale "
+"and reorders."
 msgstr ""
 "Umieść %s na dowolnej stronie, aby klienci mogli wyszukiwać produkty po "
 "nazwie lub SKU, ustawiać ilości i dodawać wiele pozycji do koszyka jednym "
@@ -90,8 +91,8 @@ msgstr "Wyświetlaj szybki formularz zamówień w sklepie."
 
 #: src/Admin/Settings.php:142
 msgid ""
-"When off, the shortcode renders nothing, handy while you set things up. Turn"
-" it on once you are ready for customers to use it."
+"When off, the shortcode renders nothing, handy while you set things up. Turn "
+"it on once you are ready for customers to use it."
 msgstr ""
 "Gdy jest wyłączony, krótki kod nic nie renderuje, co jest przydatne podczas "
 "konfigurowania. Włącz go, gdy będziesz gotowy, aby klienci mogli z niego "
@@ -120,8 +121,8 @@ msgid ""
 "example wholesale lines only)."
 msgstr ""
 "Ogranicza to, co klienci mogą wyszukiwać i dodawać. Pozostaw opcję "
-"„Wszystkie produkty”, aby uzyskać ogólny formularz ponownego zamówienia, lub"
-" wybierz kategorie, aby zawęzić je do jednego zakresu (na przykład tylko "
+"„Wszystkie produkty”, aby uzyskać ogólny formularz ponownego zamówienia, lub "
+"wybierz kategorie, aby zawęzić je do jednego zakresu (na przykład tylko "
 "linie hurtowe)."
 
 #: src/Admin/Settings.php:181
@@ -138,8 +139,8 @@ msgstr "Kategorie produktów"
 
 #: src/Admin/Settings.php:202
 msgid ""
-"Only products in the ticked categories appear in the form. Tick none and the"
-" form falls back to showing all products."
+"Only products in the ticked categories appear in the form. Tick none and the "
+"form falls back to showing all products."
 msgstr ""
 "W formularzu pojawiają się wyłącznie produkty z zaznaczonych kategorii. Nie "
 "zaznaczaj żadnego, a formularz powróci do wyświetlania wszystkich produktów."
@@ -312,12 +313,72 @@ msgstr "Dodaj zaznaczone do koszyka"
 msgid "lines queued"
 msgstr "pozycji w kolejce"
 
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Wkrótce"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Wkrótce"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:83
+#, php-format
+msgid "od %d zł/rok"
+msgstr "od %d zł/rok"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:88
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "od %1$s%2$d/rok"
+
+#: src/Admin/ProUpsell.php:97
+msgid "Upgrade to PRO"
+msgstr "Przejdź na PRO"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Powiadom mnie"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:98
+msgid "Get notified"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:128
+msgid "Permission denied."
+msgstr "Brak uprawnień."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:158
+#, php-format
+msgid "Do more with %s"
+msgstr "Zrób więcej dzięki %s"
+
+#: src/Admin/ProUpsell.php:165
+msgid "Dismiss this notice"
+msgstr "Odrzuć to powiadomienie"
+
+#: src/Admin/ProUpsell.php:182
+msgid "Unlock every PRO feature"
+msgstr "Odblokuj wszystkie funkcje PRO"
+
+#: src/Admin/ProUpsell.php:195
+msgid "one licence, every PRO feature"
+msgstr "jedna licencja, wszystkie funkcje PRO"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:214
+#, php-format
+msgid "What %s adds"
+msgstr "Co dodaje %s"
+
 #~ msgid ""
 #~ "Choose which columns appear in the order table. Product name and quantity "
 #~ "are always shown."
 #~ msgstr ""
-#~ "Wybierz, które kolumny mają się pojawiać w tabeli zamówień. Nazwa produktu i"
-#~ " ilość są wyświetlane zawsze."
+#~ "Wybierz, które kolumny mają się pojawiać w tabeli zamówień. Nazwa "
+#~ "produktu i ilość są wyświetlane zawsze."
 
 #, php-format
 #~ msgid "Between %1$d and %2$d."
