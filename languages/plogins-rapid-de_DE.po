@@ -19,7 +19,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: rapid.php
 msgid "Rapid - Quick Order Form for WooCommerce"
-msgstr "Rapid – Schnellbestellformular für WooCommerce"
+msgstr "Rapid, Schnellbestellformular für WooCommerce"
 
 #. Plugin URI of the plugin
 #: rapid.php
@@ -49,7 +49,7 @@ msgstr "https://plogins.com/"
 msgid ""
 "Rapid - Quick Order Form for WooCommerce requires WooCommerce to be active."
 msgstr ""
-"Für Rapid – Schnellbestellformular für WooCommerce muss WooCommerce aktiv "
+"Für Rapid, Schnellbestellformular für WooCommerce muss WooCommerce aktiv "
 "sein."
 
 #: src/Admin/Settings.php:65
@@ -74,7 +74,7 @@ msgid ""
 msgstr ""
 "Füge %s auf einer beliebigen Seite ein, damit Kunden Produkte nach Namen "
 "oder SKU suchen, Mengen festlegen und viele mit einem Klick in den Warenkorb "
-"legen können – ideal für B2B, Großhandel und Nachbestellungen."
+"legen können, ideal für B2B, Großhandel und Nachbestellungen."
 
 #: src/Admin/Settings.php:123
 msgid "General"

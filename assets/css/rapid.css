@@ -1,5 +1,5 @@
 /**
- * Rapid — storefront quick-order form styles.
+ * Rapid, storefront quick-order form styles.
  *
  * Grounded in a dispatch/courier world: this is an order pad buyers fill fast
  * and fire off in one submit. The accent is a warm rush-amber (not default
@@ -14,7 +14,7 @@
  */
 
 .rapid {
-    /* Rush-amber dispatch accent — the world of express orders, not WC blue.
+    /* Rush-amber dispatch accent, the world of express orders, not WC blue.
        Deepened to clear WCAG AA: white label on the accent fill and the queued
        chip edge over the soft tint both need >=4.5:1 / >=3:1 respectively. */
     --rapid-accent: #cf4209;
@@ -109,7 +109,7 @@
 }
 
 .rapid__row {
-    /* The amber edge marks rows queued for dispatch — drawn as a transparent
+    /* The amber edge marks rows queued for dispatch, drawn as a transparent
        border so it reserves its space up front: zero layout shift on toggle. */
     border-left: 3px solid transparent;
     transition: background-color 0.12s ease, border-left-color 0.18s ease;
@@ -176,7 +176,7 @@
     margin-top: 1rem;
 }
 
-/* The running tally — how many lines are queued for dispatch. */
+/* The running tally, how many lines are queued for dispatch. */
 .rapid__tally {
     font-size: 0.9rem;
     color: var(--rapid-muted);
@@ -189,7 +189,7 @@
 }
 
 /* ---- The moment: the submit button is a dispatch chute. ----
-   On press a velocity streak sweeps left-to-right — the order rushing out.
+   On press a velocity streak sweeps left-to-right, the order rushing out.
    The button itself is themeable via the accent tokens and stands clearly
    apart from a default theme button. */
 .rapid__submit.button,
