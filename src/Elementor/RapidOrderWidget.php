@@ -82,7 +82,7 @@ final class RapidOrderWidget extends Widget_Base
             'info',
             [
                 'type'            => \Elementor\Controls_Manager::RAW_HTML,
-                'raw'             => esc_html__('This block renders the Rapid quick-order form. It has no options here — configure it under WooCommerce settings.', 'plogins-rapid'),
+                'raw'             => esc_html__('This block renders the Rapid quick-order form. It has no options here, configure it under WooCommerce settings.', 'plogins-rapid'),
                 'content_classes' => 'elementor-descriptor',
             ]
         );

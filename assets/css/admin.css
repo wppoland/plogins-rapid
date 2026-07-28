@@ -182,7 +182,7 @@
 }
 
 /* ------------------------------------------------------------------ *
- * PRO upsell — dismissible banner, sidebar promo, "what PRO adds"
+ * PRO upsell, dismissible banner, sidebar promo, "what PRO adds"
  * locked cards. Pure advertising (no disabled inputs), scoped to
  * .rapid-admin, using the plugin's own rush-amber accent for decoration.
  * The CTA buttons use the fixed dark --rapid-pro-cta (#a8330a) so white
