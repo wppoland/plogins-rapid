@@ -242,7 +242,7 @@ final class OrderForm implements HasHooks
         $categorySlugs = $this->scopeCategorySlugs($settings);
 
         if (null === $categorySlugs) {
-            // Scope is "categories" but none are valid/selected — nothing to show.
+            // Scope is "categories" but none are valid/selected, nothing to show.
             return [];
         }
 

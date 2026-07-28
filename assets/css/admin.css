@@ -1,12 +1,12 @@
 /**
- * Rapid — admin settings styles. Cards and a polished, dark-mode-aware layout.
+ * Rapid, admin settings styles. Cards and a polished, dark-mode-aware layout.
  */
 
 .rapid-admin {
     --rapid-card-bg: #fff;
     --rapid-card-border: #dcdcde;
     --rapid-muted: #50575e;
-    /* Family accent — the storefront's rush-amber, kept restrained in admin.
+    /* Family accent, the storefront's rush-amber, kept restrained in admin.
        #a8330a clears WCAG AA for text (6.68:1 on #fff, 5.87:1 on #f0f0f1);
        #cf4209 is used only as a >=3:1 UI edge (section border / shortcode). */
     --rapid-accent: #a8330a;
@@ -99,27 +99,86 @@
     display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-    .rapid-admin {
-        --rapid-card-bg: #1e1e1e;
-        --rapid-card-border: #3c3c3c;
-        --rapid-muted: #bbb;
-        /* Lift the amber so accent text clears AA on the dark card. */
-        --rapid-accent: #ff7a45;
-        --rapid-accent-edge: #ff7a45;
-    }
+/* ------------------------------------------------------------------ *
+ * PRO upsell, dismissible banner, sidebar promo, "what PRO adds"
+ * locked cards. Pure advertising (no disabled inputs), scoped to
+ * .rapid-admin. Uses the family amber accent: #a8330a clears WCAG AA
+ * behind white button text (6.68:1 on #fff); #cf4209 is a >=3:1 UI edge
+ * for decorative borders and lock glyphs (non-text).
+ * ------------------------------------------------------------------ */
 
-    .rapid-intro {
-        background: linear-gradient(135deg, #2a1c14, #1e1e1e);
-    }
+.rapid-admin {
+	--rapid-pro-accent: var(--rapid-accent-edge);      /* decorative edge */
+	--rapid-pro-accent-text: var(--rapid-accent);      /* white-on-accent CTAs */
+	--rapid-pro-muted: var(--rapid-muted);
+	--rapid-pro-radius: 8px;
+	--rapid-pro-radius-sm: 6px;
+	--rapid-pro-gap: 20px;
+}
 
-    .rapid-intro code {
-        background: rgba(255, 122, 69, 0.14);
-    }
+/* Two-column wrapper (form + promo aside); single column on narrow screens. */
+.rapid-admin .rapid-cols { display: grid; gap: var(--rapid-pro-gap); grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 1100px) {
+	.rapid-admin .rapid-cols { grid-template-columns: minmax(0, 1fr) 300px; }
+}
 
-    .rapid-preview-head {
-        background: #2a2a2a;
-    }
+/* Top banner */
+.rapid-admin .rapid-pro-banner {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 1em 0 var(--rapid-pro-gap);
+	padding: 12px 16px;
+	border: 1px solid color-mix(in srgb, var(--rapid-pro-accent) 30%, #dcdcde);
+	border-inline-start: 4px solid var(--rapid-pro-accent);
+	border-radius: var(--rapid-pro-radius);
+	background: color-mix(in srgb, var(--rapid-pro-accent) 7%, #fff);
+}
+.rapid-admin .rapid-pro-banner__tag,
+.rapid-admin .rapid-pro-card__badge,
+.rapid-admin .rapid-pro-aside__eyebrow {
+	font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.rapid-admin .rapid-pro-banner__tag { flex: 0 0 auto; padding: 2px 8px; border-radius: 999px; color: #fff; background: var(--rapid-pro-accent-text); }
+.rapid-admin .rapid-pro-banner__text { flex: 1 1 auto; margin: 0; color: #1d2327; }
+.rapid-admin .rapid-pro-banner__sub { margin-inline-start: 4px; color: var(--rapid-pro-muted); }
+.rapid-admin .rapid-pro-banner__price { margin-inline-start: 6px; color: var(--rapid-pro-muted); font-weight: 600; white-space: nowrap; }
+.rapid-admin .rapid-pro-banner__dismiss { flex: 0 0 auto; font-size: 18px; line-height: 1; text-decoration: none; color: var(--rapid-pro-muted); padding: 4px; border-radius: 4px; }
+.rapid-admin .rapid-pro-banner__dismiss:hover { color: #1d2327; background: rgba(0, 0, 0, .05); }
+
+/* Accent CTA buttons (override WP blue with the readable amber accent) */
+.rapid-admin .rapid-pro-banner__cta.button-primary,
+.rapid-admin .rapid-pro-aside__cta.button-primary {
+	background: var(--rapid-pro-accent-text); border-color: color-mix(in srgb, var(--rapid-pro-accent-text) 80%, #000); color: #fff; text-shadow: none; box-shadow: none;
+}
+.rapid-admin .rapid-pro-banner__cta.button-primary:hover,
+.rapid-admin .rapid-pro-aside__cta.button-primary:hover { background: color-mix(in srgb, var(--rapid-pro-accent-text) 88%, #000); }
+
+/* Sidebar promo card */
+.rapid-admin .rapid-pro-aside {
+	background: #fff; border: 1px solid #dcdcde; border-top: 3px solid var(--rapid-pro-accent); border-radius: var(--rapid-pro-radius); padding: 18px 20px; position: sticky; top: 40px;
+}
+.rapid-admin .rapid-pro-aside__eyebrow { margin: 0 0 4px; color: var(--rapid-pro-accent-text); }
+.rapid-admin .rapid-pro-aside__heading { margin: 0 0 12px; font-size: 16px; line-height: 1.3; }
+.rapid-admin .rapid-pro-aside__list { margin: 0 0 16px; padding: 0; list-style: none; }
+.rapid-admin .rapid-pro-aside__list li { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; color: #1d2327; font-size: 13px; }
+.rapid-admin .rapid-pro-aside__lock::before,
+.rapid-admin .rapid-pro-card__lock::before { content: "\f160"; font-family: dashicons; font-size: 15px; line-height: 1.2; color: var(--rapid-pro-accent); }
+.rapid-admin .rapid-pro-aside__cta { width: 100%; text-align: center; }
+.rapid-admin .rapid-pro-aside__price { margin: 10px 0 0; font-size: 12px; color: var(--rapid-pro-muted); text-align: center; }
+
+/* "What PRO adds" locked cards */
+.rapid-admin .rapid-pro-cards { max-width: 60rem; margin: var(--rapid-pro-gap) 0 0; }
+.rapid-admin .rapid-pro-cards__title { font-size: 15px; margin: 0 0 12px; }
+.rapid-admin .rapid-pro-cards__grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.rapid-admin .rapid-pro-card { position: relative; padding: 16px; border: 1px solid #dcdcde; border-radius: var(--rapid-pro-radius-sm); background: color-mix(in srgb, var(--rapid-pro-accent) 3%, #fff); }
+.rapid-admin .rapid-pro-card__badge { position: absolute; top: 12px; inset-inline-end: 12px; padding: 1px 7px; border-radius: 999px; color: var(--rapid-pro-accent-text); border: 1px solid color-mix(in srgb, var(--rapid-pro-accent) 40%, #fff); }
+.rapid-admin .rapid-pro-card__lock { display: inline-block; margin-bottom: 6px; }
+.rapid-admin .rapid-pro-card__title { margin: 0 0 6px; font-size: 14px; line-height: 1.3; }
+.rapid-admin .rapid-pro-card__desc { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--rapid-pro-muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+	.rapid-admin .rapid-pro-banner__cta, .rapid-admin .rapid-pro-aside__cta { transition: background-color .15s ease, border-color .15s ease; }
 }
 
 /* ------------------------------------------------------------------ *
