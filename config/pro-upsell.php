@@ -30,12 +30,12 @@ return [
             'pl' => ['title' => 'Import CSV / wklej', 'desc' => 'Wklej listę SKU i ilości przez shortcode [rapid_bulk_paste] i dodaj wszystko do koszyka w jednym kroku.'],
         ],
         [
-            'en' => ['title' => 'Customer-specific pricing', 'desc' => 'Show role- or customer-based prices in the quick-order table via rapid/product_price_html (CustomerPricing, shipped).'],
-            'pl' => ['title' => 'Ceny per klient', 'desc' => 'Pokaż ceny zależne od roli lub klienta w tabeli zamówienia przez rapid/product_price_html (CustomerPricing, wdrożone).'],
+            'en' => ['title' => 'Customer-specific pricing', 'desc' => 'Show role- or customer-based prices in the quick-order table via rapid/product_price_html (shipped).'],
+            'pl' => ['title' => 'Ceny per klient', 'desc' => 'Pokaż ceny zależne od roli lub klienta w tabeli zamówienia przez rapid/product_price_html (wdrożone).'],
         ],
         [
-            'en' => ['title' => 'Per-role forms', 'desc' => 'Different product scopes, columns, intros and default SKU lines per role (RoleOrderForms, shipped).'],
-            'pl' => ['title' => 'Formularze per rola', 'desc' => 'Różne zakresy produktów, kolumny, intro i domyślne linie SKU per rola (RoleOrderForms, wdrożone).'],
+            'en' => ['title' => 'Per-role forms', 'desc' => 'Different product scopes, columns, intros and default SKU lines per role (shipped).'],
+            'pl' => ['title' => 'Formularze per rola', 'desc' => 'Różne zakresy produktów, kolumny, intro i domyślne linie SKU per rola (wdrożone).'],
         ],
     ],
 ];
