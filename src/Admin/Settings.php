@@ -103,10 +103,16 @@ final class Settings implements HasHooks
             return;
         }
 
-        $settings   = $this->settings();
-        $scope      = (string) ($settings['scope'] ?? 'all');
-        $selected   = array_map('absint', (array) ($settings['categories'] ?? []));
-        $categories = $this->productCategories();
+        $settings      = $this->settings();
+        $scope         = (string) ($settings['scope'] ?? 'all');
+        $selected      = array_map('absint', (array) ($settings['categories'] ?? []));
+        $categories    = $this->productCategories();
+
+        // "All products" reads as the whole catalogue, but the form drops every
+        // product with options and said so nowhere. A shop selling clothing in
+        // sizes offered the whole catalogue and the shopper got an empty table,
+        // so the scope section now spells the exclusion out and counts it.
+        $variableCount = $this->variableProductCount();
         ?>
         <div class="wrap rapid-admin">
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
@@ -181,6 +187,27 @@ final class Settings implements HasHooks
                                     <p class="description">
                                         <?php esc_html_e('Limits what customers can search and add. Leave on "All products" for a general reorder form, or pick categories to scope it to one range (for example wholesale lines only).', 'plogins-rapid'); ?>
                                     </p>
+                                    <p class="description">
+                                        <?php esc_html_e('Either scope lists only products that are ordered as they are. Products with options, for example size or colour, are left out: a quantity box cannot say which variation the customer wants, so they pick that on the product page.', 'plogins-rapid'); ?>
+                                    </p>
+                                    <?php if ($variableCount > 0) : ?>
+                                        <div class="notice notice-warning inline">
+                                            <p>
+                                                <?php
+                                                printf(
+                                                    /* translators: %d: number of published products with options (variable products) */
+                                                    esc_html(_n(
+                                                        '%d published product in your shop has options and will not appear in the quick order form.',
+                                                        '%d published products in your shop have options and will not appear in the quick order form.',
+                                                        $variableCount,
+                                                        'plogins-rapid',
+                                                    )),
+                                                    (int) $variableCount,
+                                                );
+                                                ?>
+                                            </p>
+                                        </div>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                             <tr
@@ -376,6 +403,27 @@ final class Settings implements HasHooks
         return is_array($terms)
             ? array_values(array_filter($terms, static fn ($t): bool => $t instanceof \WP_Term))
             : [];
+    }
+
+    /**
+     * How many published products carry options (variable products). The
+     * quick-order form cannot list them, so the scope section says so.
+     */
+    private function variableProductCount(): int
+    {
+        if (! function_exists('wc_get_products')) {
+            return 0;
+        }
+
+        $result = wc_get_products([
+            'type'     => 'variable',
+            'status'   => 'publish',
+            'limit'    => 1,
+            'return'   => 'ids',
+            'paginate' => true,
+        ]);
+
+        return $result instanceof \stdClass && isset($result->total) ? (int) $result->total : 0;
     }
 
     /**

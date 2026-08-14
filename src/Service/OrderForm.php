@@ -216,7 +216,9 @@ final class OrderForm implements HasHooks
 
     /**
      * Query purchasable products in scope, optionally filtered by search term.
-     * Variations are excluded for simplicity.
+     * Variable products are excluded: a quantity box cannot say which variation
+     * the customer means. The settings screen says so under the scope picker,
+     * because "All products" otherwise reads as the whole catalogue.
      *
      * @param array<string, mixed> $settings
      * @return array<int, \WC_Product>
@@ -241,11 +243,6 @@ final class OrderForm implements HasHooks
 
         $categorySlugs = $this->scopeCategorySlugs($settings);
 
-        if (null === $categorySlugs) {
-            // Scope is "categories" but none are valid/selected, nothing to show.
-            return [];
-        }
-
         if ([] !== $categorySlugs) {
             $args['category'] = $categorySlugs;
         }
@@ -264,46 +261,48 @@ final class OrderForm implements HasHooks
     /**
      * Resolve the configured scope into category slugs to query.
      *
-     * Returns:
-     *  - a list of slugs to filter by, or
-     *  - [] for "no category restriction" (scope = all), or
-     *  - null when scope is "categories" but there is nothing valid to show.
+     * Returns a list of slugs to filter by, or [] for "no category restriction".
      *
      * @param array<string, mixed> $settings
-     * @return array<int, string>|null
+     * @return array<int, string>
      */
-    private function scopeCategorySlugs(array $settings): ?array
+    private function scopeCategorySlugs(array $settings): array
     {
         if ('categories' !== ($settings['scope'] ?? 'all')) {
             return [];
         }
 
-        $scopeSlugs = $this->idsToSlugs(array_map('absint', (array) ($settings['categories'] ?? [])));
-
-        if ([] === $scopeSlugs) {
-            return null;
-        }
-
-        return $scopeSlugs;
+        // The settings screen promises, right under the checkboxes, that ticking
+        // none falls back to all products. It used to do the exact opposite: the
+        // shopper got an empty table and "No products are available to order
+        // yet." A selection that resolves to nothing (never ticked, or ticked
+        // categories since deleted) is what the admin screen itself shows as
+        // "none ticked", so treat it as no restriction.
+        return array_map(
+            static fn (\WP_Term $term): string => $term->slug,
+            $this->scopeCategoryTerms($settings),
+        );
     }
 
     /**
-     * @param array<int, int> $ids
-     * @return array<int, string>
+     * The configured categories as terms, dropping any that no longer exist.
+     *
+     * @param array<string, mixed> $settings
+     * @return array<int, \WP_Term>
      */
-    private function idsToSlugs(array $ids): array
+    private function scopeCategoryTerms(array $settings): array
     {
-        $slugs = [];
+        $terms = [];
 
-        foreach ($ids as $id) {
+        foreach (array_map('absint', (array) ($settings['categories'] ?? [])) as $id) {
             $term = get_term($id, 'product_cat');
 
             if ($term instanceof \WP_Term) {
-                $slugs[] = $term->slug;
+                $terms[] = $term;
             }
         }
 
-        return $slugs;
+        return $terms;
     }
 
     /**
@@ -396,10 +395,16 @@ final class OrderForm implements HasHooks
             return true;
         }
 
-        $scopeIds = array_map('absint', (array) ($settings['categories'] ?? []));
+        $scopeIds = array_map(
+            static fn (\WP_Term $term): int => (int) $term->term_id,
+            $this->scopeCategoryTerms($settings),
+        );
 
         if ([] === $scopeIds) {
-            return false;
+            // Same fallback as the table: no valid categories ticked means no
+            // restriction. This used to reject every line, so a shopper who was
+            // shown products still got "0 products added to your cart".
+            return true;
         }
 
         $productCats = $product->get_category_ids();

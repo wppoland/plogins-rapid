@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,7 +66,16 @@ Yes. WooCommerce must be installed and active.
 = Can I limit the form to certain categories? =
 
 Yes. Set the product scope to "Selected categories only" and tick the categories
-you want to offer. Choose "All products" to cover the whole catalogue.
+you want to offer. Tick none and the form falls back to showing all products.
+Choose "All products" to cover the whole catalogue, minus products with options
+(see below).
+
+= Are products with options (size, colour) included? =
+
+No. Variable products are left out of the quick order form, because a single
+quantity box cannot say which variation the customer wants; they choose that on
+the product page. The settings screen tells you how many of your published
+products this affects.
 
 = Does it work without JavaScript? =
 
@@ -103,6 +112,11 @@ Rapid does not connect to any external services. The live product search runs ag
 Plogins Rapid includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-rapid`, so WordPress.org language packs can also override or extend these bundled translations.
 
 == Changelog ==
+
+= 1.0.6 =
+* "Selected categories only" with nothing ticked now shows all products, as the settings screen promises, instead of an empty form.
+* Quantities entered on that form now reach the cart again, instead of every line being refused on submit.
+* The settings screen now says that products with options (size, colour and so on) are not listed in the form, and how many of your published products that affects.
 
 = 1.0.4 =
 * Translations: completed Polish, German and Spanish for the PRO upgrade panel.
