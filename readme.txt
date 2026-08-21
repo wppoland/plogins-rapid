@@ -20,15 +20,15 @@ products to the cart in a **single submit**, no clicking through product pages.
 It is built for B2B, wholesale, trade and reorder workflows, where buyers know
 what they want and value speed over browsing.
 
-The code lives on GitHub at https://github.com/wppoland/plogins-rapid; that is the
+The code lives on GitHub at [github.com/wppoland/plogins-rapid](https://github.com/wppoland/plogins-rapid); that is the
 place to read the source, file a bug or send a patch.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/plogins-rapid/docs/
-* **Plugin page** - https://plogins.com/plogins-rapid/
-* **Source code** - https://github.com/wppoland/plogins-rapid
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-rapid/issues
+* **Documentation**: [plogins.com/plogins-rapid/docs/](https://plogins.com/plogins-rapid/docs/)
+* **Plugin page**: [plogins.com/plogins-rapid/](https://plogins.com/plogins-rapid/)
+* **Source code**: [github.com/wppoland/plogins-rapid](https://github.com/wppoland/plogins-rapid)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-rapid/issues](https://github.com/wppoland/plogins-rapid/issues)
 
 
 = Features =
