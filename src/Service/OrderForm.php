@@ -522,15 +522,8 @@ final class OrderForm implements HasHooks
 
     private function currentUrl(): string
     {
-        $pageId = get_queried_object_id();
-
-        if ($pageId > 0) {
-            $permalink = get_permalink($pageId);
-            if (is_string($permalink)) {
-                return $permalink;
-            }
-        }
-
+        // The request URI, query string and all, so the redirect lands back on the
+        // page the form was submitted from: same pagination, same filters.
         return home_url(add_query_arg([], ''));
     }
 
