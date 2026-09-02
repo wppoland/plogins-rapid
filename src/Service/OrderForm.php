@@ -237,8 +237,22 @@ final class OrderForm implements HasHooks
         ];
 
         if ('' !== $term) {
-            // wc_get_products matches the search term against title, SKU and more.
-            $args['s'] = $term;
+            // wc_get_products('s' => $term) only reaches WP_Query's post_title /
+            // post_content / post_excerpt search: the readme promises SKU too, and
+            // 's' alone never matched one. Concatenating a raw 'sku' arg onto the
+            // same $args would AND the two conditions together and return nothing
+            // for a name-only or SKU-only term. WooCommerce's own product data
+            // store already solves this with one query that ORs title, content,
+            // excerpt and SKU; resolve the matching ids through it, then let
+            // wc_get_products() apply the rest of this method's own constraints
+            // (status, category, limit) to that id set via 'include'.
+            $matchingIds = \WC_Data_Store::load('product')->search_products($term, '', false, false, $perPage);
+
+            if ([] === $matchingIds) {
+                return [];
+            }
+
+            $args['include'] = $matchingIds;
         }
 
         $categorySlugs = $this->scopeCategorySlugs($settings);

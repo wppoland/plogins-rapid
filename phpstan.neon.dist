@@ -14,3 +14,12 @@ parameters:
         - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # WC_Data_Store::load('product') returns the generic proxy, which forwards
+        # to WC_Product_Data_Store_CPT::search_products() through __call(). Real
+        # and documented in WooCommerce core; the bundled stubs don't model the
+        # magic dispatch, so PHPStan can't see the method exists.
+        -
+            identifier: method.notFound
+            message: '#Call to an undefined method WC_Data_Store::search_products\(\)#'
+
