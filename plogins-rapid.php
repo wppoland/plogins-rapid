@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Rapid - Quick Order for WooCommerce
+ * Plugin Name:       Plogins Rapid - Quick Order for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-rapid/
  * Description:        A fast bulk order form so B2B and wholesale buyers can add many products at once.
- * Version:           1.0.9
+ * Version:           1.0.10
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -25,7 +25,7 @@ namespace Rapid;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '1.0.9';
+const VERSION     = '1.0.10';
 const PLUGIN_FILE = __FILE__;
 
 define('RAPID_DIR', plugin_dir_path(__FILE__));
