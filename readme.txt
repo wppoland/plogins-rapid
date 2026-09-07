@@ -1,11 +1,11 @@
-=== Rapid - Quick Order for WooCommerce ===
+=== Plogins Rapid - Quick Order for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, quick order, bulk order, b2b, wholesale
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.9
+Stable tag: 1.0.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,6 +112,9 @@ Rapid does not connect to any external services. The live product search runs ag
 Plogins Rapid is fully translatable and ships the `plogins-rapid.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.0.10 =
+* Renamed to Plogins Rapid - Quick Order for WooCommerce so the name leads with the brand rather than a generic word, which is what the WordPress.org plugin review team asks for. The plugin slug is unchanged.
 
 = 1.0.9 =
 * Fixed: searching the quick-order form by SKU returned nothing. The lookup passed only WooCommerce's `s` argument, which searches the title, content and excerpt but never the SKU, so the "search by name or SKU" the form promised only ever worked by name. It now resolves matches through WooCommerce's own product search, which ORs title and SKU in one query, then applies the form's own status, category and limit rules to that result.
