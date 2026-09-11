@@ -52,9 +52,9 @@ Utwórz stronę (np. „Szybkie zamówienie”) i dodaj shortcode:
 
 == Installation ==
 
-1. Prześlij wtyczkę do `/wp-content/plugins/rapid` lub zainstaluj przez Wtyczki → Dodaj nową.
+1. Prześlij wtyczkę do `/wp-content/plugins/rapid` lub zainstaluj przez Wtyczki > Dodaj nową.
 2. Włącz ją. WooCommerce musi być zainstalowane i aktywne.
-3. Przejdź do <strong>WooCommerce → Rapid</strong>, aby wybrać zakres produktów i kolumny do wyświetlenia.
+3. Przejdź do <strong>WooCommerce > Rapid</strong>, aby wybrać zakres produktów i kolumny do wyświetlenia.
 4. Utwórz stronę z shortcode’em `[rapid_order]`, na której umieścisz formularz.
 
 == Frequently Asked Questions ==

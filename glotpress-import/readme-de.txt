@@ -52,9 +52,9 @@ Erstelle eine Seite (z. B. „Schnellbestellung“) und füge den Shortcode hinz
 
 == Installation ==
 
-1. Lade das Plugin nach `/wp-content/plugins/rapid` hoch oder installiere es über Plugins → Neu hinzufügen.
+1. Lade das Plugin nach `/wp-content/plugins/rapid` hoch oder installiere es über Plugins > Neu hinzufügen.
 2. Aktiviere es. WooCommerce muss installiert und aktiv sein.
-3. Gehe zu <strong>WooCommerce → Rapid</strong>, um den Produktumfang und die anzuzeigenden Spalten auszuwählen.
+3. Gehe zu <strong>WooCommerce > Rapid</strong>, um den Produktumfang und die anzuzeigenden Spalten auszuwählen.
 4. Erstelle eine Seite mit dem `[rapid_order]`-Shortcode, um das Formular bereitzustellen.
 
 == Frequently Asked Questions ==
