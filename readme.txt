@@ -1,11 +1,11 @@
-=== Plogins Rapid - Quick Order for WooCommerce ===
+=== Tujo - Quick Order for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, quick order, bulk order, b2b, wholesale
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.13
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ A fast bulk order form so B2B and wholesale buyers can add many products at once
 
 == Description ==
 
-Rapid adds a searchable quick-order form to your WooCommerce store. Customers
+Tujo adds a searchable quick-order form to your WooCommerce store. Customers
 find products by **name or SKU**, set quantities in a compact table and add many
 products to the cart in a **single submit**, no clicking through product pages.
 
@@ -52,9 +52,9 @@ Create a page (e.g. "Quick Order") and add the shortcode:
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/rapid`, or install via Plugins > Add New.
+1. Upload the plugin to `/wp-content/plugins/tujo`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be installed and active.
-3. Go to **WooCommerce > Rapid** to choose the product scope and which columns to show.
+3. Go to **WooCommerce > Tujo** to choose the product scope and which columns to show.
 4. Create a page with the `[rapid_order]` shortcode to host the form.
 
 == Frequently Asked Questions ==
@@ -101,17 +101,20 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 == Screenshots ==
 
 1. The quick order form with live search and quantity inputs.
-2. The Rapid settings screen under WooCommerce.
+2. The Tujo settings screen under WooCommerce.
 
 == External Services ==
 
-Rapid does not connect to any external services. The live product search runs against your own store: the form posts to your site's `admin-ajax.php` and queries your existing WooCommerce products by name or SKU, and the batched add-to-cart uses WooCommerce's own cart. Rapid stores only two options in your WordPress database (`rapid_settings` and `rapid_db_version`); it creates no custom tables and sends no email.
+Tujo does not connect to any external services. The live product search runs against your own store: the form posts to your site's `admin-ajax.php` and queries your existing WooCommerce products by name or SKU, and the batched add-to-cart uses WooCommerce's own cart. Tujo stores only two options in your WordPress database (`rapid_settings` and `rapid_db_version`); it creates no custom tables and sends no email.
 
 == Translations ==
 
-Plogins Rapid is fully translatable and ships the `plogins-rapid.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
+Tujo is fully translatable and ships the `tujo.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.0 =
+* Renamed to Tujo. The WordPress.org review team asks a plugin name to lead with a distinctive, coined identifier rather than a generic descriptive word. Tuj is Esperanto for immediately. The text domain follows the name; the stored data, the settings and every hook are unchanged.
 
 = 1.0.13 =
 * Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.

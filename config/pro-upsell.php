@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Rapid Pro',
+    'name'       => 'Tujo Pro',
     'url'        => 'https://plogins.com/plogins-rapid-pro/pricing/',
     'sellable'   => true,
     'price_from' => 29,

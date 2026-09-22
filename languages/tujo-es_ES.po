@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: plogins-rapid\n"
+"X-Domain: tujo\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
@@ -47,17 +47,17 @@ msgstr "https://plogins.com/"
 
 #: rapid.php:47
 msgid ""
-"Rapid - Quick Order Form for WooCommerce requires WooCommerce to be active."
+"Tujo requires WooCommerce to be active."
 msgstr ""
 "Rápido: el formulario de pedido rápido para WooCommerce requiere que "
 "WooCommerce esté activo."
 
 #: src/Admin/Settings.php:65
-msgid "Rapid: Quick Order Form"
+msgid "Tujo: Quick Order Form"
 msgstr "Rápido: Formulario de pedido rápido"
 
 #: src/Admin/Settings.php:66
-msgid "Rapid"
+msgid "Tujo"
 msgstr "Rápido"
 
 #: src/Admin/Settings.php:107
