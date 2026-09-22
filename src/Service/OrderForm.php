@@ -83,9 +83,9 @@ final class OrderForm implements HasHooks
             'nonce'   => wp_create_nonce(self::SEARCH_NONCE),
             'action'  => 'rapid_search',
             'i18n'    => [
-                'searching' => __('Searching…', 'plogins-rapid'),
-                'noResults' => __('No products found.', 'plogins-rapid'),
-                'error'     => __('Something went wrong. Please try again.', 'plogins-rapid'),
+                'searching' => __('Searching…', 'tujo'),
+                'noResults' => __('No products found.', 'tujo'),
+                'error'     => __('Something went wrong. Please try again.', 'tujo'),
             ],
         ]);
 
@@ -172,13 +172,13 @@ final class OrderForm implements HasHooks
     public function ajaxSearch(): void
     {
         if (! $this->isEnabled()) {
-            wp_send_json_error(['message' => __('Quick order is disabled.', 'plogins-rapid')], 403);
+            wp_send_json_error(['message' => __('Quick order is disabled.', 'tujo')], 403);
         }
 
         $nonce = isset($_GET['nonce']) ? sanitize_text_field(wp_unslash($_GET['nonce'])) : '';
 
         if (! wp_verify_nonce($nonce, self::SEARCH_NONCE)) {
-            wp_send_json_error(['message' => __('Your session expired. Please reload the page.', 'plogins-rapid')], 403);
+            wp_send_json_error(['message' => __('Your session expired. Please reload the page.', 'tujo')], 403);
         }
 
         $term = isset($_GET['term']) ? sanitize_text_field(wp_unslash($_GET['term'])) : '';
@@ -373,7 +373,7 @@ final class OrderForm implements HasHooks
     private function stockLabel(\WC_Product $product): string
     {
         if (! $product->is_in_stock()) {
-            return __('Out of stock', 'plogins-rapid');
+            return __('Out of stock', 'tujo');
         }
 
         if ($product->managing_stock()) {
@@ -382,13 +382,13 @@ final class OrderForm implements HasHooks
             if (null !== $qty) {
                 return sprintf(
                     /* translators: %d: number of items in stock */
-                    _n('%d in stock', '%d in stock', (int) $qty, 'plogins-rapid'),
+                    _n('%d in stock', '%d in stock', (int) $qty, 'tujo'),
                     (int) $qty,
                 );
             }
         }
 
-        return __('In stock', 'plogins-rapid');
+        return __('In stock', 'tujo');
     }
 
     /**
@@ -445,7 +445,7 @@ final class OrderForm implements HasHooks
             wc_add_notice(
                 sprintf(
                     /* translators: %d: number of products added to the cart */
-                    _n('%d product added to your cart.', '%d products added to your cart.', $added, 'plogins-rapid'),
+                    _n('%d product added to your cart.', '%d products added to your cart.', $added, 'tujo'),
                     $added,
                 ),
                 'success',
@@ -456,7 +456,7 @@ final class OrderForm implements HasHooks
             wc_add_notice(
                 sprintf(
                     /* translators: %d: number of products that could not be added */
-                    _n('%d product could not be added.', '%d products could not be added.', $skipped, 'plogins-rapid'),
+                    _n('%d product could not be added.', '%d products could not be added.', $skipped, 'tujo'),
                     $skipped,
                 ),
                 'error',
@@ -464,7 +464,7 @@ final class OrderForm implements HasHooks
         }
 
         if (0 === $added && 0 === $skipped) {
-            wc_add_notice(__('No quantities were entered.', 'plogins-rapid'), 'notice');
+            wc_add_notice(__('No quantities were entered.', 'tujo'), 'notice');
         }
     }
 
