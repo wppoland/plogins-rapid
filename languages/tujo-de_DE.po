@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rapid - Quick Order Form for WooCommerce 0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rapid\n"
-"POT-Creation-Date: 2026-06-16T20:24:04+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tujo\n"
+"POT-Creation-Date: 2026-09-09T14:37:57+00:00\n"
 "PO-Revision-Date: 2026-06-16T20:24:04+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
-#: rapid.php
-msgid "Rapid - Quick Order Form for WooCommerce"
-msgstr "Rapid, Schnellbestellformular für WooCommerce"
+#: tujo.php
+msgid "Tujo - Quick Order for WooCommerce"
+msgstr ""
 
 #. Plugin URI of the plugin
-#: rapid.php
-msgid "https://plogins.com/rapid/"
-msgstr "https://plogins.com/de/rapid/"
+#: tujo.php
+msgid "https://plogins.com/plogins-rapid/"
+msgstr ""
 
 #. Description of the plugin
-#: rapid.php
+#: tujo.php
 msgid ""
 "A fast bulk order form so B2B and wholesale buyers can add many products at "
 "once."
@@ -36,36 +36,89 @@ msgstr ""
 "Produkte gleichzeitig hinzufügen können."
 
 #. Author of the plugin
-#: rapid.php
-msgid "WPPoland"
-msgstr "WPPoland"
+#: tujo.php
+msgid "WPPoland.com"
+msgstr ""
 
 #. Author URI of the plugin
-#: rapid.php
-msgid "https://plogins.com/"
-msgstr "https://plogins.com/"
+#: tujo.php
+msgid "https://wppoland.com"
+msgstr ""
 
-#: rapid.php:47
-msgid ""
-"Tujo requires WooCommerce to be active."
+#: tujo.php:48
+msgid "Tujo requires WooCommerce to be active."
 msgstr ""
 "Für Rapid, Schnellbestellformular für WooCommerce muss WooCommerce aktiv "
 "sein."
 
-#: src/Admin/Settings.php:65
+#: src/Admin/ProUpsell.php:78
+msgid "Wkrótce"
+msgstr "Demnächst"
+
+#: src/Admin/ProUpsell.php:78
+msgid "Coming soon"
+msgstr "Demnächst"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:84
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "ab %1$s%2$d/Jahr"
+
+#: src/Admin/ProUpsell.php:93
+msgid "Upgrade to PRO"
+msgstr "Auf PRO upgraden"
+
+#: src/Admin/ProUpsell.php:94
+msgid "Powiadom mnie"
+msgstr "Benachrichtige mich"
+
+#: src/Admin/ProUpsell.php:94
+msgid "Get notified"
+msgstr "Benachrichtige mich"
+
+#: src/Admin/ProUpsell.php:124
+msgid "Permission denied."
+msgstr "Zugriff verweigert."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:154
+#, php-format
+msgid "Do more with %s"
+msgstr "Mehr erreichen mit %s"
+
+#: src/Admin/ProUpsell.php:161
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis ausblenden"
+
+#: src/Admin/ProUpsell.php:178
+msgid "Unlock every PRO feature"
+msgstr "Alle PRO-Funktionen freischalten"
+
+#: src/Admin/ProUpsell.php:191
+msgid "one licence, every PRO feature"
+msgstr "eine Lizenz, alle PRO-Funktionen"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:210
+#, php-format
+msgid "What %s adds"
+msgstr "Was %s ergänzt"
+
+#: src/Admin/Settings.php:73
 msgid "Tujo: Quick Order Form"
 msgstr "Rapid: Schnellbestellformular"
 
-#: src/Admin/Settings.php:66
+#: src/Admin/Settings.php:74
 msgid "Tujo"
 msgstr "Rapid"
 
-#: src/Admin/Settings.php:107
+#: src/Admin/Settings.php:123
 msgid "A fast bulk order form for your shop"
 msgstr "Ein schnelles Sammelbestellformular für deinen Shop"
 
 #. translators: %s: shortcode wrapped in <code>.
-#: src/Admin/Settings.php:112
+#: src/Admin/Settings.php:128
 #, php-format
 msgid ""
 "Drop %s into any page to let customers search products by name or SKU, set "
@@ -76,19 +129,19 @@ msgstr ""
 "oder SKU suchen, Mengen festlegen und viele mit einem Klick in den Warenkorb "
 "legen können, ideal für B2B, Großhandel und Nachbestellungen."
 
-#: src/Admin/Settings.php:123
+#: src/Admin/Settings.php:139
 msgid "General"
 msgstr "Allgemein"
 
-#: src/Admin/Settings.php:128
+#: src/Admin/Settings.php:144
 msgid "Enable quick order"
 msgstr "Schnellbestellung aktivieren"
 
-#: src/Admin/Settings.php:139
+#: src/Admin/Settings.php:155
 msgid "Show the quick order form on the storefront."
 msgstr "Zeige das Schnellbestellformular im Schaufenster an."
 
-#: src/Admin/Settings.php:142
+#: src/Admin/Settings.php:158
 msgid ""
 "When off, the shortcode renders nothing, handy while you set things up. Turn "
 "it on once you are ready for customers to use it."
@@ -97,23 +150,23 @@ msgstr ""
 "beim Einrichten. Schalte es ein, sobald du für die Nutzung durch Kunden "
 "bereit sind."
 
-#: src/Admin/Settings.php:151
+#: src/Admin/Settings.php:167
 msgid "Product scope"
 msgstr "Produktumfang"
 
-#: src/Admin/Settings.php:156
+#: src/Admin/Settings.php:172
 msgid "Which products?"
 msgstr "Welche Produkte?"
 
-#: src/Admin/Settings.php:165
+#: src/Admin/Settings.php:181
 msgid "All products"
 msgstr "Alle Produkte"
 
-#: src/Admin/Settings.php:168
+#: src/Admin/Settings.php:184
 msgid "Selected categories only"
 msgstr "Nur ausgewählte Kategorien"
 
-#: src/Admin/Settings.php:172
+#: src/Admin/Settings.php:188
 msgid ""
 "Limits what customers can search and add. Leave on \"All products\" for a "
 "general reorder form, or pick categories to scope it to one range (for "
@@ -124,19 +177,38 @@ msgstr ""
 "Kategorien aus, um es auf einen Bereich zu beschränken (z. B. nur "
 "Großhandelslinien)."
 
-#: src/Admin/Settings.php:181
+#: src/Admin/Settings.php:191
+msgid ""
+"Either scope lists only products that are ordered as they are. Products with "
+"options, for example size or colour, are left out: a quantity box cannot say "
+"which variation the customer wants, so they pick that on the product page."
+msgstr ""
+
+#. translators: %d: number of published products with options (variable products)
+#: src/Admin/Settings.php:199
+#, php-format
+msgid ""
+"%d published product in your shop has options and will not appear in the "
+"quick order form."
+msgid_plural ""
+"%d published products in your shop have options and will not appear in the "
+"quick order form."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Admin/Settings.php:218
 msgid "Categories"
 msgstr "Kategorien"
 
-#: src/Admin/Settings.php:185
+#: src/Admin/Settings.php:222
 msgid "No product categories found yet."
 msgstr "Es wurden noch keine Produktkategorien gefunden."
 
-#: src/Admin/Settings.php:188
+#: src/Admin/Settings.php:225
 msgid "Product categories"
 msgstr "Produktkategorien"
 
-#: src/Admin/Settings.php:202
+#: src/Admin/Settings.php:239
 msgid ""
 "Only products in the ticked categories appear in the form. Tick none and the "
 "form falls back to showing all products."
@@ -144,11 +216,11 @@ msgstr ""
 "Im Formular erscheinen nur Produkte in den angekreuzten Kategorien. Markiere "
 "„Keine“ und das Formular zeigt wieder alle Produkte an."
 
-#: src/Admin/Settings.php:212
+#: src/Admin/Settings.php:249
 msgid "Columns"
 msgstr "Spalten"
 
-#: src/Admin/Settings.php:213
+#: src/Admin/Settings.php:250
 msgid ""
 "Choose which columns appear in the order table. Product name and quantity "
 "are always shown, for example:"
@@ -156,65 +228,65 @@ msgstr ""
 "Wähle aus, welche Spalten in der Bestelltabelle angezeigt werden. "
 "Produktname und Menge werden immer angezeigt, zum Beispiel:"
 
-#: src/Admin/Settings.php:216 templates/order-form.php:61
-#: templates/order-form.php:96
+#: src/Admin/Settings.php:253 templates/order-form.php:72
+#: templates/order-form.php:107
 msgid "Product"
 msgstr "Produkt"
 
-#: src/Admin/Settings.php:217
+#: src/Admin/Settings.php:254
 msgid "Qty"
 msgstr "Menge"
 
-#: src/Admin/Settings.php:220
+#: src/Admin/Settings.php:257
 msgid "Espresso beans, 1 kg"
 msgstr "Espressobohnen, 1 kg"
 
-#: src/Admin/Settings.php:227 templates/order-form.php:59
-#: templates/order-form.php:85
+#: src/Admin/Settings.php:264 templates/order-form.php:70
+#: templates/order-form.php:96
 msgid "Image"
 msgstr "Bild"
 
-#: src/Admin/Settings.php:227
+#: src/Admin/Settings.php:264
 msgid "Show a product thumbnail."
 msgstr "Miniaturansicht eines Produkts anzeigen."
 
-#: src/Admin/Settings.php:228 templates/order-form.php:63
-#: templates/order-form.php:104
+#: src/Admin/Settings.php:265 templates/order-form.php:74
+#: templates/order-form.php:115
 msgid "SKU"
 msgstr "Artikelnummer"
 
-#: src/Admin/Settings.php:228
+#: src/Admin/Settings.php:265
 msgid "Show the product SKU."
 msgstr "Zeige die Produkt-SKU an."
 
-#: src/Admin/Settings.php:229 templates/order-form.php:66
-#: templates/order-form.php:107
+#: src/Admin/Settings.php:266 templates/order-form.php:77
+#: templates/order-form.php:118
 msgid "Price"
 msgstr "Preis"
 
-#: src/Admin/Settings.php:229
+#: src/Admin/Settings.php:266
 msgid "Show the product price."
 msgstr "Zeige den Produktpreis an."
 
-#: src/Admin/Settings.php:230 templates/order-form.php:69
-#: templates/order-form.php:110
+#: src/Admin/Settings.php:267 templates/order-form.php:80
+#: templates/order-form.php:121
 msgid "Stock"
 msgstr "Aktie"
 
-#: src/Admin/Settings.php:230
+#: src/Admin/Settings.php:267
 msgid "Show stock availability."
 msgstr "Lagerverfügbarkeit anzeigen."
 
-#: src/Admin/Settings.php:237
+#: src/Admin/Settings.php:274
 msgid "Search"
 msgstr "Suchen"
 
-#: src/Admin/Settings.php:242
+#: src/Admin/Settings.php:279
 msgid "Results per page"
 msgstr "Ergebnisse pro Seite"
 
 #. translators: 1: minimum, 2: maximum
-#: src/Admin/Settings.php:259
+#: src/Admin/Settings.php:296
 #, php-format
 msgid ""
 "How many matches to show before customers load more. Lower keeps the form "
@@ -236,32 +308,32 @@ msgstr "Keine Produkte gefunden."
 msgid "Something went wrong. Please try again."
 msgstr "Etwas ist schief gelaufen. Bitte versuche es erneut."
 
-#: src/Service/OrderForm.php:173
+#: src/Service/OrderForm.php:175
 msgid "Quick order is disabled."
 msgstr "Die Schnellbestellung ist deaktiviert."
 
-#: src/Service/OrderForm.php:179
+#: src/Service/OrderForm.php:181
 msgid "Your session expired. Please reload the page."
 msgstr "deine Sitzung ist abgelaufen. Bitte lade die Seite neu."
 
-#: src/Service/OrderForm.php:347
+#: src/Service/OrderForm.php:376
 msgid "Out of stock"
 msgstr "Ausverkauft"
 
 #. translators: %d: number of items in stock
-#: src/Service/OrderForm.php:356
+#: src/Service/OrderForm.php:385
 #, php-format
 msgid "%d in stock"
 msgid_plural "%d in stock"
 msgstr[0] "%d auf Lager"
 msgstr[1] "%d auf Lager"
 
-#: src/Service/OrderForm.php:362
+#: src/Service/OrderForm.php:391
 msgid "In stock"
 msgstr "Auf Lager"
 
 #. translators: %d: number of products added to the cart
-#: src/Service/OrderForm.php:413
+#: src/Service/OrderForm.php:448
 #, php-format
 msgid "%d product added to your cart."
 msgid_plural "%d products added to your cart."
@@ -269,103 +341,59 @@ msgstr[0] "%d Produkt wurde deinem Warenkorb hinzugefügt."
 msgstr[1] "%d Produkte wurden deinem Warenkorb hinzugefügt."
 
 #. translators: %d: number of products that could not be added
-#: src/Service/OrderForm.php:424
+#: src/Service/OrderForm.php:459
 #, php-format
 msgid "%d product could not be added."
 msgid_plural "%d products could not be added."
 msgstr[0] "%d Produkt konnte nicht hinzugefügt werden."
 msgstr[1] "%d Produkte konnten nicht hinzugefügt werden."
 
-#: src/Service/OrderForm.php:432
+#: src/Service/OrderForm.php:467
 msgid "No quantities were entered."
 msgstr "Es wurden keine Mengen eingegeben."
 
-#: templates/order-form.php:39
+#: templates/order-form.php:50
 msgid "Search products"
 msgstr "Produkte suchen"
 
-#: templates/order-form.php:44
+#: templates/order-form.php:55
 msgid "Search by name or SKU…"
 msgstr "Suche nach Name oder SKU…"
 
-#: templates/order-form.php:71 templates/order-form.php:112
+#: templates/order-form.php:82 templates/order-form.php:123
 msgid "Quantity"
 msgstr "Menge"
 
-#: templates/order-form.php:78
+#: templates/order-form.php:89
 msgid "No products are available to order yet."
 msgstr "Es sind noch keine Produkte bestellbar."
 
 #. translators: %s: product name
-#: templates/order-form.php:116
+#: templates/order-form.php:127
 #, php-format
 msgid "Quantity for %s"
 msgstr "Menge für %s"
 
-#: templates/order-form.php:139
+#: templates/order-form.php:150
 msgid "Add selected to cart"
 msgstr "Ausgewählte Artikel in den Warenkorb legen"
 
-#: templates/order-form.php:143
+#: templates/order-form.php:154
 msgid "lines queued"
 msgstr "Positionen in der Warteschlange"
 
-#: src/Admin/ProUpsell.php:78
-msgid "Wkrótce"
-msgstr "Demnächst"
+#~ msgid "Rapid - Quick Order Form for WooCommerce"
+#~ msgstr "Rapid, Schnellbestellformular für WooCommerce"
 
-#: src/Admin/ProUpsell.php:78
-msgid "Coming soon"
-msgstr "Demnächst"
+#~ msgid "https://plogins.com/rapid/"
+#~ msgstr "https://plogins.com/de/rapid/"
 
-#. translators: %d: yearly price in PLN
-#: src/Admin/ProUpsell.php:83
+#~ msgid "WPPoland"
+#~ msgstr "WPPoland"
+
+#~ msgid "https://plogins.com/"
+#~ msgstr "https://plogins.com/"
+
 #, php-format
-msgid "od %d zł/rok"
-msgstr "ab %d zł/Jahr"
-
-#. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:88
-#, php-format
-msgid "from %1$s%2$d/yr"
-msgstr "ab %1$s%2$d/Jahr"
-
-#: src/Admin/ProUpsell.php:97
-msgid "Upgrade to PRO"
-msgstr "Auf PRO upgraden"
-
-#: src/Admin/ProUpsell.php:98
-msgid "Powiadom mnie"
-msgstr "Benachrichtige mich"
-
-#: src/Admin/ProUpsell.php:98
-msgid "Get notified"
-msgstr "Benachrichtige mich"
-
-#: src/Admin/ProUpsell.php:128
-msgid "Permission denied."
-msgstr "Zugriff verweigert."
-
-#. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:158
-#, php-format
-msgid "Do more with %s"
-msgstr "Mehr erreichen mit %s"
-
-#: src/Admin/ProUpsell.php:165
-msgid "Dismiss this notice"
-msgstr "Diesen Hinweis ausblenden"
-
-#: src/Admin/ProUpsell.php:182
-msgid "Unlock every PRO feature"
-msgstr "Alle PRO-Funktionen freischalten"
-
-#: src/Admin/ProUpsell.php:195
-msgid "one licence, every PRO feature"
-msgstr "eine Lizenz, alle PRO-Funktionen"
-
-#. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:214
-#, php-format
-msgid "What %s adds"
-msgstr "Was %s ergänzt"
+#~ msgid "od %d zł/rok"
+#~ msgstr "ab %d zł/Jahr"
