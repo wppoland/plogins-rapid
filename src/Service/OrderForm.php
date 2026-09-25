@@ -108,7 +108,11 @@ final class OrderForm implements HasHooks
      */
     public function maybeHandleSubmit(): void
     {
-        if (! isset($_POST['rapid_submit'])) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce verified below.
+        $nonce = isset($_POST['rapid_nonce'])
+            ? sanitize_text_field(wp_unslash($_POST['rapid_nonce']))
+            : '';
+
+        if ('' === $nonce || ! wp_verify_nonce($nonce, self::NONCE) || ! isset($_POST['rapid_submit'])) {
             return;
         }
 
@@ -116,16 +120,8 @@ final class OrderForm implements HasHooks
             return;
         }
 
-        $nonce = isset($_POST['rapid_nonce'])
-            ? sanitize_text_field(wp_unslash($_POST['rapid_nonce']))
-            : '';
-
-        if (! wp_verify_nonce($nonce, self::NONCE)) {
-            return;
-        }
-
         $quantities = isset($_POST['rapid_qty']) && is_array($_POST['rapid_qty'])
-            ? wp_unslash($_POST['rapid_qty']) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- keys/values cast to int below.
+            ? map_deep(wp_unslash($_POST['rapid_qty']), 'absint')
             : [];
 
         $added   = 0;
