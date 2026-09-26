@@ -20,7 +20,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: tujo.php
 msgid "Tujo - Quick Order for WooCommerce"
-msgstr "Rapid - Szybki formularz zamówień dla WooCommerce"
+msgstr "Tujo - Szybki formularz zamówień dla WooCommerce"
 
 #. Plugin URI of the plugin
 #: tujo.php
@@ -49,7 +49,7 @@ msgstr "https://wppoland.com"
 #: tujo.php:48
 msgid "Tujo requires WooCommerce to be active."
 msgstr ""
-"Rapid - Szybki formularz zamówień dla WooCommerce wymaga aktywnego "
+"Tujo - Szybki formularz zamówień dla WooCommerce wymaga aktywnego "
 "WooCommerce."
 
 #: src/Admin/ProUpsell.php:78
@@ -108,11 +108,11 @@ msgstr "Co dodaje %s"
 
 #: src/Admin/Settings.php:73
 msgid "Tujo: Quick Order Form"
-msgstr "Rapid: Szybki formularz zamówień"
+msgstr "Tujo: Szybki formularz zamówień"
 
 #: src/Admin/Settings.php:74
 msgid "Tujo"
-msgstr "Rapid"
+msgstr "Tujo"
 
 #: src/Admin/Settings.php:123
 msgid "A fast bulk order form for your shop"
@@ -183,9 +183,14 @@ msgid ""
 "Either scope lists only products that are ordered as they are. Products with "
 "options, for example size or colour, are left out: a quantity box cannot say "
 "which variation the customer wants, so they pick that on the product page."
-msgstr "Każdy z zakresów wymienia tylko produkty zamawiane w takiej postaci, w jakiej są. Produkty z opcjami, na przykład rozmiarem lub kolorem, są pomijane: pole ilości nie powie, którego wariantu chce klient, więc wybiera go na stronie produktu."
+msgstr ""
+"Każdy z zakresów wymienia tylko produkty zamawiane w takiej postaci, w "
+"jakiej są. Produkty z opcjami, na przykład rozmiarem lub kolorem, są "
+"pomijane: pole ilości nie powie, którego wariantu chce klient, więc wybiera "
+"go na stronie produktu."
 
-#. translators: %d: number of published products with options (variable products)
+#. translators: %d: number of published products with options (variable
+#. products)
 #: src/Admin/Settings.php:199
 #, php-format
 msgid ""
@@ -194,9 +199,15 @@ msgid ""
 msgid_plural ""
 "%d published products in your shop have options and will not appear in the "
 "quick order form."
-msgstr[0] "%d opublikowany produkt w Twoim sklepie ma opcje i nie pojawi się w formularzu szybkiego zamówienia."
-msgstr[1] "%d opublikowane produkty w Twoim sklepie mają opcje i nie pojawią się w formularzu szybkiego zamówienia."
-msgstr[2] "%d opublikowanych produktów w Twoim sklepie ma opcje i nie pojawi się w formularzu szybkiego zamówienia."
+msgstr[0] ""
+"%d opublikowany produkt w Twoim sklepie ma opcje i nie pojawi się w "
+"formularzu szybkiego zamówienia."
+msgstr[1] ""
+"%d opublikowane produkty w Twoim sklepie mają opcje i nie pojawią się w "
+"formularzu szybkiego zamówienia."
+msgstr[2] ""
+"%d opublikowanych produktów w Twoim sklepie ma opcje i nie pojawi się w "
+"formularzu szybkiego zamówienia."
 
 #: src/Admin/Settings.php:218
 msgid "Categories"
