@@ -47,9 +47,7 @@ msgstr ""
 
 #: tujo.php:48
 msgid "Tujo requires WooCommerce to be active."
-msgstr ""
-"Rápido: el formulario de pedido rápido para WooCommerce requiere que "
-"WooCommerce esté activo."
+msgstr "Tujo requiere que WooCommerce esté activo."
 
 #: src/Admin/ProUpsell.php:78
 msgid "Wkrótce"
@@ -107,11 +105,11 @@ msgstr "Lo que añade %s"
 
 #: src/Admin/Settings.php:73
 msgid "Tujo: Quick Order Form"
-msgstr "Rápido: Formulario de pedido rápido"
+msgstr "Tujo: Formulario de pedido rápido"
 
 #: src/Admin/Settings.php:74
 msgid "Tujo"
-msgstr "Rápido"
+msgstr "Tujo"
 
 #: src/Admin/Settings.php:123
 msgid "A fast bulk order form for your shop"
@@ -183,7 +181,8 @@ msgid ""
 "which variation the customer wants, so they pick that on the product page."
 msgstr ""
 
-#. translators: %d: number of published products with options (variable products)
+#. translators: %d: number of published products with options (variable
+#. products)
 #: src/Admin/Settings.php:199
 #, php-format
 msgid ""
