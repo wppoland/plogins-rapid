@@ -83,9 +83,9 @@ final class OrderForm implements HasHooks
             'nonce'   => wp_create_nonce(self::SEARCH_NONCE),
             'action'  => 'rapid_search',
             'i18n'    => [
-                'searching' => __('Searching…', 'plogins-rapid'),
-                'noResults' => __('No products found.', 'plogins-rapid'),
-                'error'     => __('Something went wrong. Please try again.', 'plogins-rapid'),
+                'searching' => __('Searching…', 'tujo'),
+                'noResults' => __('No products found.', 'tujo'),
+                'error'     => __('Something went wrong. Please try again.', 'tujo'),
             ],
         ]);
 
@@ -108,7 +108,11 @@ final class OrderForm implements HasHooks
      */
     public function maybeHandleSubmit(): void
     {
-        if (! isset($_POST['rapid_submit'])) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce verified below.
+        $nonce = isset($_POST['rapid_nonce'])
+            ? sanitize_text_field(wp_unslash($_POST['rapid_nonce']))
+            : '';
+
+        if ('' === $nonce || ! wp_verify_nonce($nonce, self::NONCE) || ! isset($_POST['rapid_submit'])) {
             return;
         }
 
@@ -116,16 +120,8 @@ final class OrderForm implements HasHooks
             return;
         }
 
-        $nonce = isset($_POST['rapid_nonce'])
-            ? sanitize_text_field(wp_unslash($_POST['rapid_nonce']))
-            : '';
-
-        if (! wp_verify_nonce($nonce, self::NONCE)) {
-            return;
-        }
-
         $quantities = isset($_POST['rapid_qty']) && is_array($_POST['rapid_qty'])
-            ? wp_unslash($_POST['rapid_qty']) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- keys/values cast to int below.
+            ? map_deep(wp_unslash($_POST['rapid_qty']), 'absint')
             : [];
 
         $added   = 0;
@@ -172,13 +168,13 @@ final class OrderForm implements HasHooks
     public function ajaxSearch(): void
     {
         if (! $this->isEnabled()) {
-            wp_send_json_error(['message' => __('Quick order is disabled.', 'plogins-rapid')], 403);
+            wp_send_json_error(['message' => __('Quick order is disabled.', 'tujo')], 403);
         }
 
         $nonce = isset($_GET['nonce']) ? sanitize_text_field(wp_unslash($_GET['nonce'])) : '';
 
         if (! wp_verify_nonce($nonce, self::SEARCH_NONCE)) {
-            wp_send_json_error(['message' => __('Your session expired. Please reload the page.', 'plogins-rapid')], 403);
+            wp_send_json_error(['message' => __('Your session expired. Please reload the page.', 'tujo')], 403);
         }
 
         $term = isset($_GET['term']) ? sanitize_text_field(wp_unslash($_GET['term'])) : '';
@@ -216,7 +212,9 @@ final class OrderForm implements HasHooks
 
     /**
      * Query purchasable products in scope, optionally filtered by search term.
-     * Variations are excluded for simplicity.
+     * Variable products are excluded: a quantity box cannot say which variation
+     * the customer means. The settings screen says so under the scope picker,
+     * because "All products" otherwise reads as the whole catalogue.
      *
      * @param array<string, mixed> $settings
      * @return array<int, \WC_Product>
@@ -235,16 +233,25 @@ final class OrderForm implements HasHooks
         ];
 
         if ('' !== $term) {
-            // wc_get_products matches the search term against title, SKU and more.
-            $args['s'] = $term;
+            // wc_get_products('s' => $term) only reaches WP_Query's post_title /
+            // post_content / post_excerpt search: the readme promises SKU too, and
+            // 's' alone never matched one. Concatenating a raw 'sku' arg onto the
+            // same $args would AND the two conditions together and return nothing
+            // for a name-only or SKU-only term. WooCommerce's own product data
+            // store already solves this with one query that ORs title, content,
+            // excerpt and SKU; resolve the matching ids through it, then let
+            // wc_get_products() apply the rest of this method's own constraints
+            // (status, category, limit) to that id set via 'include'.
+            $matchingIds = \WC_Data_Store::load('product')->search_products($term, '', false, false, $perPage);
+
+            if ([] === $matchingIds) {
+                return [];
+            }
+
+            $args['include'] = $matchingIds;
         }
 
         $categorySlugs = $this->scopeCategorySlugs($settings);
-
-        if (null === $categorySlugs) {
-            // Scope is "categories" but none are valid/selected, nothing to show.
-            return [];
-        }
 
         if ([] !== $categorySlugs) {
             $args['category'] = $categorySlugs;
@@ -264,46 +271,48 @@ final class OrderForm implements HasHooks
     /**
      * Resolve the configured scope into category slugs to query.
      *
-     * Returns:
-     *  - a list of slugs to filter by, or
-     *  - [] for "no category restriction" (scope = all), or
-     *  - null when scope is "categories" but there is nothing valid to show.
+     * Returns a list of slugs to filter by, or [] for "no category restriction".
      *
      * @param array<string, mixed> $settings
-     * @return array<int, string>|null
+     * @return array<int, string>
      */
-    private function scopeCategorySlugs(array $settings): ?array
+    private function scopeCategorySlugs(array $settings): array
     {
         if ('categories' !== ($settings['scope'] ?? 'all')) {
             return [];
         }
 
-        $scopeSlugs = $this->idsToSlugs(array_map('absint', (array) ($settings['categories'] ?? [])));
-
-        if ([] === $scopeSlugs) {
-            return null;
-        }
-
-        return $scopeSlugs;
+        // The settings screen promises, right under the checkboxes, that ticking
+        // none falls back to all products. It used to do the exact opposite: the
+        // shopper got an empty table and "No products are available to order
+        // yet." A selection that resolves to nothing (never ticked, or ticked
+        // categories since deleted) is what the admin screen itself shows as
+        // "none ticked", so treat it as no restriction.
+        return array_map(
+            static fn (\WP_Term $term): string => $term->slug,
+            $this->scopeCategoryTerms($settings),
+        );
     }
 
     /**
-     * @param array<int, int> $ids
-     * @return array<int, string>
+     * The configured categories as terms, dropping any that no longer exist.
+     *
+     * @param array<string, mixed> $settings
+     * @return array<int, \WP_Term>
      */
-    private function idsToSlugs(array $ids): array
+    private function scopeCategoryTerms(array $settings): array
     {
-        $slugs = [];
+        $terms = [];
 
-        foreach ($ids as $id) {
+        foreach (array_map('absint', (array) ($settings['categories'] ?? [])) as $id) {
             $term = get_term($id, 'product_cat');
 
             if ($term instanceof \WP_Term) {
-                $slugs[] = $term->slug;
+                $terms[] = $term;
             }
         }
 
-        return $slugs;
+        return $terms;
     }
 
     /**
@@ -360,7 +369,7 @@ final class OrderForm implements HasHooks
     private function stockLabel(\WC_Product $product): string
     {
         if (! $product->is_in_stock()) {
-            return __('Out of stock', 'plogins-rapid');
+            return __('Out of stock', 'tujo');
         }
 
         if ($product->managing_stock()) {
@@ -369,13 +378,13 @@ final class OrderForm implements HasHooks
             if (null !== $qty) {
                 return sprintf(
                     /* translators: %d: number of items in stock */
-                    _n('%d in stock', '%d in stock', (int) $qty, 'plogins-rapid'),
+                    _n('%d in stock', '%d in stock', (int) $qty, 'tujo'),
                     (int) $qty,
                 );
             }
         }
 
-        return __('In stock', 'plogins-rapid');
+        return __('In stock', 'tujo');
     }
 
     /**
@@ -396,10 +405,16 @@ final class OrderForm implements HasHooks
             return true;
         }
 
-        $scopeIds = array_map('absint', (array) ($settings['categories'] ?? []));
+        $scopeIds = array_map(
+            static fn (\WP_Term $term): int => (int) $term->term_id,
+            $this->scopeCategoryTerms($settings),
+        );
 
         if ([] === $scopeIds) {
-            return false;
+            // Same fallback as the table: no valid categories ticked means no
+            // restriction. This used to reject every line, so a shopper who was
+            // shown products still got "0 products added to your cart".
+            return true;
         }
 
         $productCats = $product->get_category_ids();
@@ -426,7 +441,7 @@ final class OrderForm implements HasHooks
             wc_add_notice(
                 sprintf(
                     /* translators: %d: number of products added to the cart */
-                    _n('%d product added to your cart.', '%d products added to your cart.', $added, 'plogins-rapid'),
+                    _n('%d product added to your cart.', '%d products added to your cart.', $added, 'tujo'),
                     $added,
                 ),
                 'success',
@@ -437,7 +452,7 @@ final class OrderForm implements HasHooks
             wc_add_notice(
                 sprintf(
                     /* translators: %d: number of products that could not be added */
-                    _n('%d product could not be added.', '%d products could not be added.', $skipped, 'plogins-rapid'),
+                    _n('%d product could not be added.', '%d products could not be added.', $skipped, 'tujo'),
                     $skipped,
                 ),
                 'error',
@@ -445,7 +460,7 @@ final class OrderForm implements HasHooks
         }
 
         if (0 === $added && 0 === $skipped) {
-            wc_add_notice(__('No quantities were entered.', 'plogins-rapid'), 'notice');
+            wc_add_notice(__('No quantities were entered.', 'tujo'), 'notice');
         }
     }
 
@@ -517,15 +532,8 @@ final class OrderForm implements HasHooks
 
     private function currentUrl(): string
     {
-        $pageId = get_queried_object_id();
-
-        if ($pageId > 0) {
-            $permalink = get_permalink($pageId);
-            if (is_string($permalink)) {
-                return $permalink;
-            }
-        }
-
+        // The request URI, query string and all, so the redirect lands back on the
+        // page the form was submitted from: same pagination, same filters.
         return home_url(add_query_arg([], ''));
     }
 

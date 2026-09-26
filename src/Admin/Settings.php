@@ -70,8 +70,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Rapid: Quick Order Form', 'plogins-rapid'),
-            __('Rapid', 'plogins-rapid'),
+            __('Tujo: Quick Order Form', 'tujo'),
+            __('Tujo', 'tujo'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -103,10 +103,16 @@ final class Settings implements HasHooks
             return;
         }
 
-        $settings   = $this->settings();
-        $scope      = (string) ($settings['scope'] ?? 'all');
-        $selected   = array_map('absint', (array) ($settings['categories'] ?? []));
-        $categories = $this->productCategories();
+        $settings      = $this->settings();
+        $scope         = (string) ($settings['scope'] ?? 'all');
+        $selected      = array_map('absint', (array) ($settings['categories'] ?? []));
+        $categories    = $this->productCategories();
+
+        // "All products" reads as the whole catalogue, but the form drops every
+        // product with options and said so nowhere. A shop selling clothing in
+        // sizes offered the whole catalogue and the shopper got an empty table,
+        // so the scope section now spells the exclusion out and counts it.
+        $variableCount = $this->variableProductCount();
         ?>
         <div class="wrap rapid-admin">
             <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
@@ -114,12 +120,12 @@ final class Settings implements HasHooks
             <?php $this->proUpsell()->banner(); ?>
 
             <div class="rapid-intro">
-                <h2><?php esc_html_e('A fast bulk order form for your shop', 'plogins-rapid'); ?></h2>
+                <h2><?php esc_html_e('A fast bulk order form for your shop', 'tujo'); ?></h2>
                 <p>
                     <?php
                     printf(
                         /* translators: %s: shortcode wrapped in <code>. */
-                        esc_html__('Drop %s into any page to let customers search products by name or SKU, set quantities and add many to the cart in one click, perfect for B2B, wholesale and reorders.', 'plogins-rapid'),
+                        esc_html__('Drop %s into any page to let customers search products by name or SKU, set quantities and add many to the cart in one click, perfect for B2B, wholesale and reorders.', 'tujo'),
                         '<code>[rapid_order]</code>',
                     );
                     ?>
@@ -131,12 +137,12 @@ final class Settings implements HasHooks
                 <?php settings_fields(self::GROUP); ?>
 
                 <div class="rapid-card">
-                    <h2><?php esc_html_e('General', 'plogins-rapid'); ?></h2>
+                    <h2><?php esc_html_e('General', 'tujo'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <?php esc_html_e('Enable quick order', 'plogins-rapid'); ?>
+                                    <?php esc_html_e('Enable quick order', 'tujo'); ?>
                                 </th>
                                 <td>
                                     <label for="rapid_enabled">
@@ -147,10 +153,10 @@ final class Settings implements HasHooks
                                             value="1"
                                             <?php checked((bool) ($settings['enabled'] ?? false), true); ?>
                                         />
-                                        <?php esc_html_e('Show the quick order form on the storefront.', 'plogins-rapid'); ?>
+                                        <?php esc_html_e('Show the quick order form on the storefront.', 'tujo'); ?>
                                     </label>
                                     <p class="description">
-                                        <?php esc_html_e('When off, the shortcode renders nothing, handy while you set things up. Turn it on once you are ready for customers to use it.', 'plogins-rapid'); ?>
+                                        <?php esc_html_e('When off, the shortcode renders nothing, handy while you set things up. Turn it on once you are ready for customers to use it.', 'tujo'); ?>
                                     </p>
                                 </td>
                             </tr>
@@ -159,12 +165,12 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="rapid-card">
-                    <h2><?php esc_html_e('Product scope', 'plogins-rapid'); ?></h2>
+                    <h2><?php esc_html_e('Product scope', 'tujo'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="rapid_scope"><?php esc_html_e('Which products?', 'plogins-rapid'); ?></label>
+                                    <label for="rapid_scope"><?php esc_html_e('Which products?', 'tujo'); ?></label>
                                 </th>
                                 <td>
                                     <select
@@ -173,15 +179,36 @@ final class Settings implements HasHooks
                                         name="<?php echo esc_attr(self::OPTION); ?>[scope]"
                                     >
                                         <option value="all" <?php selected($scope, 'all'); ?>>
-                                            <?php esc_html_e('All products', 'plogins-rapid'); ?>
+                                            <?php esc_html_e('All products', 'tujo'); ?>
                                         </option>
                                         <option value="categories" <?php selected($scope, 'categories'); ?>>
-                                            <?php esc_html_e('Selected categories only', 'plogins-rapid'); ?>
+                                            <?php esc_html_e('Selected categories only', 'tujo'); ?>
                                         </option>
                                     </select>
                                     <p class="description">
-                                        <?php esc_html_e('Limits what customers can search and add. Leave on "All products" for a general reorder form, or pick categories to scope it to one range (for example wholesale lines only).', 'plogins-rapid'); ?>
+                                        <?php esc_html_e('Limits what customers can search and add. Leave on "All products" for a general reorder form, or pick categories to scope it to one range (for example wholesale lines only).', 'tujo'); ?>
                                     </p>
+                                    <p class="description">
+                                        <?php esc_html_e('Either scope lists only products that are ordered as they are. Products with options, for example size or colour, are left out: a quantity box cannot say which variation the customer wants, so they pick that on the product page.', 'tujo'); ?>
+                                    </p>
+                                    <?php if ($variableCount > 0) : ?>
+                                        <div class="notice notice-warning inline">
+                                            <p>
+                                                <?php
+                                                printf(
+                                                    /* translators: %d: number of published products with options (variable products) */
+                                                    esc_html(_n(
+                                                        '%d published product in your shop has options and will not appear in the quick order form.',
+                                                        '%d published products in your shop have options and will not appear in the quick order form.',
+                                                        $variableCount,
+                                                        'tujo',
+                                                    )),
+                                                    (int) $variableCount,
+                                                );
+                                                ?>
+                                            </p>
+                                        </div>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                             <tr
@@ -189,14 +216,14 @@ final class Settings implements HasHooks
                                 <?php echo 'categories' === $scope ? '' : 'data-hidden="1"'; ?>
                             >
                                 <th scope="row">
-                                    <?php esc_html_e('Categories', 'plogins-rapid'); ?>
+                                    <?php esc_html_e('Categories', 'tujo'); ?>
                                 </th>
                                 <td>
                                     <?php if ([] === $categories) : ?>
-                                        <p class="description"><?php esc_html_e('No product categories found yet.', 'plogins-rapid'); ?></p>
+                                        <p class="description"><?php esc_html_e('No product categories found yet.', 'tujo'); ?></p>
                                     <?php else : ?>
                                         <fieldset class="rapid-categories">
-                                            <legend class="screen-reader-text"><?php esc_html_e('Product categories', 'plogins-rapid'); ?></legend>
+                                            <legend class="screen-reader-text"><?php esc_html_e('Product categories', 'tujo'); ?></legend>
                                             <?php foreach ($categories as $rapid_term) : ?>
                                                 <label class="rapid-category">
                                                     <input
@@ -210,7 +237,7 @@ final class Settings implements HasHooks
                                             <?php endforeach; ?>
                                         </fieldset>
                                         <p class="description">
-                                            <?php esc_html_e('Only products in the ticked categories appear in the form. Tick none and the form falls back to showing all products.', 'plogins-rapid'); ?>
+                                            <?php esc_html_e('Only products in the ticked categories appear in the form. Tick none and the form falls back to showing all products.', 'tujo'); ?>
                                         </p>
                                     <?php endif; ?>
                                 </td>
@@ -220,37 +247,37 @@ final class Settings implements HasHooks
                 </div>
 
                 <div class="rapid-card">
-                    <h2><?php esc_html_e('Columns', 'plogins-rapid'); ?></h2>
-                    <p class="description"><?php esc_html_e('Choose which columns appear in the order table. Product name and quantity are always shown, for example:', 'plogins-rapid'); ?></p>
+                    <h2><?php esc_html_e('Columns', 'tujo'); ?></h2>
+                    <p class="description"><?php esc_html_e('Choose which columns appear in the order table. Product name and quantity are always shown, for example:', 'tujo'); ?></p>
                     <div class="rapid-preview" aria-hidden="true">
                         <div class="rapid-preview-head">
-                            <span><?php esc_html_e('Product', 'plogins-rapid'); ?></span>
-                            <span><?php esc_html_e('Qty', 'plogins-rapid'); ?></span>
+                            <span><?php esc_html_e('Product', 'tujo'); ?></span>
+                            <span><?php esc_html_e('Qty', 'tujo'); ?></span>
                         </div>
                         <div class="rapid-preview-row">
-                            <span><?php esc_html_e('Espresso beans, 1 kg', 'plogins-rapid'); ?></span>
+                            <span><?php esc_html_e('Espresso beans, 1 kg', 'tujo'); ?></span>
                             <span>2</span>
                         </div>
                     </div>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <?php
-                            $this->checkboxRow('show_image', __('Image', 'plogins-rapid'), __('Show a product thumbnail.', 'plogins-rapid'), $settings);
-                            $this->checkboxRow('show_sku', __('SKU', 'plogins-rapid'), __('Show the product SKU.', 'plogins-rapid'), $settings);
-                            $this->checkboxRow('show_price', __('Price', 'plogins-rapid'), __('Show the product price.', 'plogins-rapid'), $settings);
-                            $this->checkboxRow('show_stock', __('Stock', 'plogins-rapid'), __('Show stock availability.', 'plogins-rapid'), $settings);
+                            $this->checkboxRow('show_image', __('Image', 'tujo'), __('Show a product thumbnail.', 'tujo'), $settings);
+                            $this->checkboxRow('show_sku', __('SKU', 'tujo'), __('Show the product SKU.', 'tujo'), $settings);
+                            $this->checkboxRow('show_price', __('Price', 'tujo'), __('Show the product price.', 'tujo'), $settings);
+                            $this->checkboxRow('show_stock', __('Stock', 'tujo'), __('Show stock availability.', 'tujo'), $settings);
                             ?>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="rapid-card">
-                    <h2><?php esc_html_e('Search', 'plogins-rapid'); ?></h2>
+                    <h2><?php esc_html_e('Search', 'tujo'); ?></h2>
                     <table class="form-table" role="presentation">
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    <label for="rapid_per_page"><?php esc_html_e('Results per page', 'plogins-rapid'); ?></label>
+                                    <label for="rapid_per_page"><?php esc_html_e('Results per page', 'tujo'); ?></label>
                                 </th>
                                 <td>
                                     <input
@@ -267,7 +294,7 @@ final class Settings implements HasHooks
                                         <?php
                                         printf(
                                             /* translators: 1: minimum, 2: maximum */
-                                            esc_html__('How many matches to show before customers load more. Lower keeps the form compact and quick; higher shows more at once. Between %1$d and %2$d.', 'plogins-rapid'),
+                                            esc_html__('How many matches to show before customers load more. Lower keeps the form compact and quick; higher shows more at once. Between %1$d and %2$d.', 'tujo'),
                                             (int) self::MIN_PER_PAGE,
                                             (int) self::MAX_PER_PAGE,
                                         );
@@ -380,6 +407,27 @@ final class Settings implements HasHooks
         return is_array($terms)
             ? array_values(array_filter($terms, static fn ($t): bool => $t instanceof \WP_Term))
             : [];
+    }
+
+    /**
+     * How many published products carry options (variable products). The
+     * quick-order form cannot list them, so the scope section says so.
+     */
+    private function variableProductCount(): int
+    {
+        if (! function_exists('wc_get_products')) {
+            return 0;
+        }
+
+        $result = wc_get_products([
+            'type'     => 'variable',
+            'status'   => 'publish',
+            'limit'    => 1,
+            'return'   => 'ids',
+            'paginate' => true,
+        ]);
+
+        return $result instanceof \stdClass && isset($result->total) ? (int) $result->total : 0;
     }
 
     /**
