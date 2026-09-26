@@ -1,11 +1,11 @@
-=== Rapid - Quick Order for WooCommerce ===
+=== Tujo - Quick Order for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, quick order, bulk order, b2b, wholesale
 Requires at least: 6.5
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.5
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,22 +13,22 @@ A fast bulk order form so B2B and wholesale buyers can add many products at once
 
 == Description ==
 
-Rapid adds a searchable quick-order form to your WooCommerce store. Customers
+Tujo adds a searchable quick-order form to your WooCommerce store. Customers
 find products by **name or SKU**, set quantities in a compact table and add many
 products to the cart in a **single submit**, no clicking through product pages.
 
 It is built for B2B, wholesale, trade and reorder workflows, where buyers know
 what they want and value speed over browsing.
 
-The code lives on GitHub at https://github.com/wppoland/plogins-rapid; that is the
+The code lives on GitHub at [github.com/wppoland/plogins-rapid](https://github.com/wppoland/plogins-rapid); that is the
 place to read the source, file a bug or send a patch.
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/plogins-rapid/docs/
-* **Plugin page** - https://plogins.com/plogins-rapid/
-* **Source code** - https://github.com/wppoland/plogins-rapid
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-rapid/issues
+* **Documentation**: [plogins.com/plogins-rapid/docs/](https://plogins.com/plogins-rapid/docs/)
+* **Plugin page**: [plogins.com/plogins-rapid/](https://plogins.com/plogins-rapid/)
+* **Source code**: [github.com/wppoland/plogins-rapid](https://github.com/wppoland/plogins-rapid)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-rapid/issues](https://github.com/wppoland/plogins-rapid/issues)
 
 
 = Features =
@@ -52,9 +52,9 @@ Create a page (e.g. "Quick Order") and add the shortcode:
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/rapid`, or install via Plugins → Add New.
+1. Upload the plugin to `/wp-content/plugins/tujo`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be installed and active.
-3. Go to **WooCommerce → Rapid** to choose the product scope and which columns to show.
+3. Go to **WooCommerce > Tujo** to choose the product scope and which columns to show.
 4. Create a page with the `[rapid_order]` shortcode to host the form.
 
 == Frequently Asked Questions ==
@@ -66,7 +66,16 @@ Yes. WooCommerce must be installed and active.
 = Can I limit the form to certain categories? =
 
 Yes. Set the product scope to "Selected categories only" and tick the categories
-you want to offer. Choose "All products" to cover the whole catalogue.
+you want to offer. Tick none and the form falls back to showing all products.
+Choose "All products" to cover the whole catalogue, minus products with options
+(see below).
+
+= Are products with options (size, colour) included? =
+
+No. Variable products are left out of the quick order form, because a single
+quantity box cannot say which variation the customer wants; they choose that on
+the product page. The settings screen tells you how many of your published
+products this affects.
 
 = Does it work without JavaScript? =
 
@@ -92,17 +101,53 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 == Screenshots ==
 
 1. The quick order form with live search and quantity inputs.
-2. The Rapid settings screen under WooCommerce.
+2. The Tujo settings screen under WooCommerce.
 
 == External Services ==
 
-Rapid does not connect to any external services. The live product search runs against your own store: the form posts to your site's `admin-ajax.php` and queries your existing WooCommerce products by name or SKU, and the batched add-to-cart uses WooCommerce's own cart. Rapid stores only two options in your WordPress database (`rapid_settings` and `rapid_db_version`); it creates no custom tables and sends no email.
+Tujo does not connect to any external services. The live product search runs against your own store: the form posts to your site's `admin-ajax.php` and queries your existing WooCommerce products by name or SKU, and the batched add-to-cart uses WooCommerce's own cart. Tujo stores only two options in your WordPress database (`rapid_settings` and `rapid_db_version`); it creates no custom tables and sends no email.
 
 == Translations ==
 
-Plogins Rapid includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-rapid`, so WordPress.org language packs can also override or extend these bundled translations.
+Tujo is fully translatable and ships the `tujo.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.2 =
+* The quick order form now checks its security token before reading anything from the submission, and the posted quantities are sanitised as they are read.
+
+= 1.1.1 =
+* The sidebar upgrade promo now follows the same dismissal as the banner. Dismissing the banner used to leave a full-height advert on the settings screen for good, which is not what the WordPress.org guideline on upgrade prompts means by used with moderation.
+
+= 1.1.0 =
+* Renamed to Tujo. The WordPress.org review team asks a plugin name to lead with a distinctive, coined identifier rather than a generic descriptive word. Tuj is Esperanto for immediately. The text domain follows the name; the stored data, the settings and every hook are unchanged.
+
+= 1.0.13 =
+* Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
+* Fixed: arrow glyphs in the admin menu paths, and in the strings handed to translators. An arrow inside a translatable string makes the glyph every translator's problem and changes the layout in any locale that drops it.
+
+= 1.0.12 =
+* Fixed: deleting the plugin left the per-user "dismiss" flag from the PRO notice in the database. Uninstall now removes it for every user, not just the one who dismissed it.
+
+= 1.0.11 =
+* The translation template was regenerated. It still named an older version of the plugin and pointed at source lines that had since moved, which is what translation tools read to show a string in context.
+
+= 1.0.10 =
+* Renamed to Plogins Rapid - Quick Order for WooCommerce so the name leads with the brand rather than a generic word, which is what the WordPress.org plugin review team asks for. The plugin slug is unchanged.
+
+= 1.0.9 =
+* Fixed: searching the quick-order form by SKU returned nothing. The lookup passed only WooCommerce's `s` argument, which searches the title, content and excerpt but never the SKU, so the "search by name or SKU" the form promised only ever worked by name. It now resolves matches through WooCommerce's own product search, which ORs title and SKU in one query, then applies the form's own status, category and limit rules to that result.
+
+= 1.0.8 =
+* Tested against WordPress 7.1. Verified by activating this build on a clean 7.1 install with WooCommerce 11.1, not by editing the header.
+
+= 1.0.7 =
+* Fixed the PRO promo on the settings screen quoting a price in PLN. PRO is priced and charged in EUR, so an admin on a Polish site was shown a zloty amount and then billed in euro, and the zloty figure was a fixed conversion that drifted from the real charge as the rate moved. The promo now shows the euro price that is actually taken.
+
+= 1.0.6 =
+* "Selected categories only" with nothing ticked now shows all products, as the settings screen promises, instead of an empty form.
+* Quantities entered on that form now reach the cart again, instead of every line being refused on submit.
+* The settings screen now says that products with options (size, colour and so on) are not listed in the form, and how many of your published products that affects.
 
 = 1.0.4 =
 * Translations: completed Polish, German and Spanish for the PRO upgrade panel.

@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Rapid - Quick Order for WooCommerce
+ * Plugin Name:       Tujo - Quick Order for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-rapid/
  * Description:        A fast bulk order form so B2B and wholesale buyers can add many products at once.
- * Version:           1.0.5
+ * Version:           1.1.2
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -11,10 +11,10 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       plogins-rapid
+ * Text Domain:       tujo
  * Domain Path:       /languages
  * WC requires at least: 8.0
- * WC tested up to: 10.9
+ * WC tested up to: 11.0
  *
  * @package Rapid
  */
@@ -25,7 +25,7 @@ namespace Rapid;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '1.0.5';
+const VERSION     = '1.1.2';
 const PLUGIN_FILE = __FILE__;
 
 define('RAPID_DIR', plugin_dir_path(__FILE__));
@@ -45,7 +45,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Rapid - Quick Order Form for WooCommerce requires WooCommerce to be active.', 'plogins-rapid');
+            echo esc_html__('Tujo requires WooCommerce to be active.', 'tujo');
             echo '</p></div>';
         });
         return;
