@@ -575,17 +575,24 @@ final class OrderForm implements HasHooks
     /**
      * Render a packaged template with an escaped context.
      *
-     * @param array<string, mixed> $context
+     * The variables are extracted into the template's scope, so this method's
+     * own locals must not share a name with any key. It used to take
+     * `$context`, which EXTR_SKIP then refused to overwrite, so the template
+     * saw the whole array instead of the visitor context.
+     *
+     * @param array<string, mixed> $vars
      */
-    private function renderTemplate(string $template, array $context): void
+    private function renderTemplate(string $template, array $vars): void
     {
-        $file = RAPID_DIR . 'templates/' . $template . '.php';
+        $rapidTemplateFile = RAPID_DIR . 'templates/' . $template . '.php';
 
-        if (! is_readable($file)) {
+        if (! is_readable($rapidTemplateFile)) {
             return;
         }
 
-        extract($context, EXTR_SKIP);
-        require $file;
+        unset($template);
+        extract($vars, EXTR_SKIP);
+        unset($vars);
+        require $rapidTemplateFile;
     }
 }
