@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rapid - Quick Order Form for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/tujo\n"
-"POT-Creation-Date: 2026-09-09T14:37:57+00:00\n"
+"POT-Creation-Date: 2026-10-05T11:15:19+00:00\n"
 "PO-Revision-Date: 2026-06-16T20:24:04+00:00\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 #. Plugin Name of the plugin
 #: tujo.php
 msgid "Tujo - Quick Order for WooCommerce"
-msgstr ""
+msgstr "Tujo - Schnellbestellung für WooCommerce"
 
 #. Plugin URI of the plugin
 #: tujo.php
 msgid "https://plogins.com/plogins-rapid/"
-msgstr ""
+msgstr "https://plogins.com/plogins-rapid/"
 
 #. Description of the plugin
 #: tujo.php
@@ -38,68 +38,55 @@ msgstr ""
 #. Author of the plugin
 #: tujo.php
 msgid "WPPoland.com"
-msgstr ""
+msgstr "WPPoland.com"
 
 #. Author URI of the plugin
 #: tujo.php
 msgid "https://wppoland.com"
-msgstr ""
+msgstr "https://wppoland.com"
 
-#: tujo.php:48
-msgid "Tujo requires WooCommerce to be active."
-msgstr ""
-"Für Tujo, Schnellbestellformular für WooCommerce muss WooCommerce aktiv sein."
-
-#: src/Admin/ProUpsell.php:78
-msgid "Wkrótce"
-msgstr "Demnächst"
-
-#: src/Admin/ProUpsell.php:78
+#: src/Admin/ProUpsell.php:85
 msgid "Coming soon"
 msgstr "Demnächst"
 
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:84
+#: src/Admin/ProUpsell.php:91
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr "ab %1$s%2$d/Jahr"
 
-#: src/Admin/ProUpsell.php:93
+#: src/Admin/ProUpsell.php:100
 msgid "Upgrade to PRO"
 msgstr "Auf PRO upgraden"
 
-#: src/Admin/ProUpsell.php:94
-msgid "Powiadom mnie"
-msgstr "Benachrichtige mich"
-
-#: src/Admin/ProUpsell.php:94
+#: src/Admin/ProUpsell.php:101
 msgid "Get notified"
 msgstr "Benachrichtige mich"
 
-#: src/Admin/ProUpsell.php:124
+#: src/Admin/ProUpsell.php:131
 msgid "Permission denied."
 msgstr "Zugriff verweigert."
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:154
+#: src/Admin/ProUpsell.php:161
 #, php-format
 msgid "Do more with %s"
 msgstr "Mehr erreichen mit %s"
 
-#: src/Admin/ProUpsell.php:161
+#: src/Admin/ProUpsell.php:168
 msgid "Dismiss this notice"
 msgstr "Diesen Hinweis ausblenden"
 
-#: src/Admin/ProUpsell.php:178
+#: src/Admin/ProUpsell.php:190
 msgid "Unlock every PRO feature"
 msgstr "Alle PRO-Funktionen freischalten"
 
-#: src/Admin/ProUpsell.php:191
+#: src/Admin/ProUpsell.php:203
 msgid "one licence, every PRO feature"
 msgstr "eine Lizenz, alle PRO-Funktionen"
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:210
+#: src/Admin/ProUpsell.php:222
 #, php-format
 msgid "What %s adds"
 msgstr "Was %s ergänzt"
@@ -124,8 +111,8 @@ msgid ""
 "quantities and add many to the cart in one click, perfect for B2B, wholesale "
 "and reorders."
 msgstr ""
-"Füge %s auf einer beliebigen Seite ein, damit Kunden Produkte nach Namen "
-"oder SKU suchen, Mengen festlegen und viele mit einem Klick in den Warenkorb "
+"Füge %s auf einer beliebigen Seite ein, damit Kunden Produkte nach Namen oder"
+" SKU suchen, Mengen festlegen und viele mit einem Klick in den Warenkorb "
 "legen können, ideal für B2B, Großhandel und Nachbestellungen."
 
 #: src/Admin/Settings.php:139
@@ -182,6 +169,10 @@ msgid ""
 "options, for example size or colour, are left out: a quantity box cannot say "
 "which variation the customer wants, so they pick that on the product page."
 msgstr ""
+"Beide Umfänge listen nur Produkte auf, die so bestellt werden, wie sie sind. "
+"Produkte mit Optionen, zum Beispiel Größe oder Farbe, werden ausgelassen: Ein"
+" Mengenfeld kann nicht angeben, welche Variante der Kunde möchte, daher wählt"
+" er sie auf der Produktseite."
 
 #. translators: %d: number of published products with options (variable
 #. products)
@@ -194,7 +185,11 @@ msgid_plural ""
 "%d published products in your shop have options and will not appear in the "
 "quick order form."
 msgstr[0] ""
+"%d veröffentlichtes Produkt in deinem Shop hat Optionen und erscheint nicht "
+"im Schnellbestellformular."
 msgstr[1] ""
+"%d veröffentlichte Produkte in deinem Shop haben Optionen und erscheinen "
+"nicht im Schnellbestellformular."
 
 #: src/Admin/Settings.php:218
 msgid "Categories"
@@ -222,11 +217,11 @@ msgstr "Spalten"
 
 #: src/Admin/Settings.php:250
 msgid ""
-"Choose which columns appear in the order table. Product name and quantity "
-"are always shown, for example:"
+"Choose which columns appear in the order table. Product name and quantity are"
+" always shown, for example:"
 msgstr ""
-"Wähle aus, welche Spalten in der Bestelltabelle angezeigt werden. "
-"Produktname und Menge werden immer angezeigt, zum Beispiel:"
+"Wähle aus, welche Spalten in der Bestelltabelle angezeigt werden. Produktname"
+" und Menge werden immer angezeigt, zum Beispiel:"
 
 #: src/Admin/Settings.php:253 templates/order-form.php:72
 #: templates/order-form.php:107
@@ -308,32 +303,32 @@ msgstr "Keine Produkte gefunden."
 msgid "Something went wrong. Please try again."
 msgstr "Etwas ist schief gelaufen. Bitte versuche es erneut."
 
-#: src/Service/OrderForm.php:175
+#: src/Service/OrderForm.php:171
 msgid "Quick order is disabled."
 msgstr "Die Schnellbestellung ist deaktiviert."
 
-#: src/Service/OrderForm.php:181
+#: src/Service/OrderForm.php:177
 msgid "Your session expired. Please reload the page."
 msgstr "deine Sitzung ist abgelaufen. Bitte lade die Seite neu."
 
-#: src/Service/OrderForm.php:376
+#: src/Service/OrderForm.php:372
 msgid "Out of stock"
 msgstr "Ausverkauft"
 
 #. translators: %d: number of items in stock
-#: src/Service/OrderForm.php:385
+#: src/Service/OrderForm.php:381
 #, php-format
 msgid "%d in stock"
 msgid_plural "%d in stock"
 msgstr[0] "%d auf Lager"
 msgstr[1] "%d auf Lager"
 
-#: src/Service/OrderForm.php:391
+#: src/Service/OrderForm.php:387
 msgid "In stock"
 msgstr "Auf Lager"
 
 #. translators: %d: number of products added to the cart
-#: src/Service/OrderForm.php:448
+#: src/Service/OrderForm.php:444
 #, php-format
 msgid "%d product added to your cart."
 msgid_plural "%d products added to your cart."
@@ -341,14 +336,14 @@ msgstr[0] "%d Produkt wurde deinem Warenkorb hinzugefügt."
 msgstr[1] "%d Produkte wurden deinem Warenkorb hinzugefügt."
 
 #. translators: %d: number of products that could not be added
-#: src/Service/OrderForm.php:459
+#: src/Service/OrderForm.php:455
 #, php-format
 msgid "%d product could not be added."
 msgid_plural "%d products could not be added."
 msgstr[0] "%d Produkt konnte nicht hinzugefügt werden."
 msgstr[1] "%d Produkte konnten nicht hinzugefügt werden."
 
-#: src/Service/OrderForm.php:467
+#: src/Service/OrderForm.php:463
 msgid "No quantities were entered."
 msgstr "Es wurden keine Mengen eingegeben."
 
@@ -381,6 +376,17 @@ msgstr "Ausgewählte Artikel in den Warenkorb legen"
 #: templates/order-form.php:154
 msgid "lines queued"
 msgstr "Positionen in der Warteschlange"
+
+#: tujo.php:48
+msgid "Tujo requires WooCommerce to be active."
+msgstr ""
+"Für Tujo, Schnellbestellformular für WooCommerce muss WooCommerce aktiv sein."
+
+#~ msgid "Wkrótce"
+#~ msgstr "Demnächst"
+
+#~ msgid "Powiadom mnie"
+#~ msgstr "Benachrichtige mich"
 
 #~ msgid "Rapid - Quick Order Form for WooCommerce"
 #~ msgstr "Rapid, Schnellbestellformular für WooCommerce"
