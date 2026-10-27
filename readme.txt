@@ -50,6 +50,31 @@ Create a page (e.g. "Quick Order") and add the shortcode:
 
 `[rapid_order]`
 
+== Tujo Pro ==
+
+Tujo Pro is a separate paid plugin that extends Tujo.
+
+Included in Tujo:
+
+* [rapid_order] shortcode
+* AJAX search
+* Product scope
+* Batched add-to-cart
+* Selectable columns
+
+Tujo Pro adds:
+
+* CSV / paste import
+* Saved order lists
+* Customer-specific pricing
+* Per-role forms
+
+The free edition is not a trial and its features stay available without a time limit.
+
+* **Tujo Pro** - [plogins.com/plogins-rapid-pro/](https://plogins.com/plogins-rapid-pro/)
+* **Compare editions and pricing** - [plogins.com/plogins-rapid-pro/pricing/](https://plogins.com/plogins-rapid-pro/pricing/)
+* **PRO documentation** - [plogins.com/plogins-rapid-pro/docs/](https://plogins.com/plogins-rapid-pro/docs/)
+
 == Installation ==
 
 1. Upload the plugin to `/wp-content/plugins/tujo`, or install via Plugins > Add New.
