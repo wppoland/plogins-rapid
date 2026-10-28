@@ -24,8 +24,8 @@ msgstr "Tujo - Szybki formularz zamówień dla WooCommerce"
 
 #. Plugin URI of the plugin
 #: tujo.php
-msgid "https://plogins.com/plogins-rapid/"
-msgstr "https://plogins.com/plogins-rapid/"
+msgid "https://plogins.com/tujo/"
+msgstr "https://plogins.com/tujo/"
 
 #. Description of the plugin
 #: tujo.php

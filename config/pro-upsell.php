@@ -4,14 +4,14 @@
  * scripts/gen-pro-upsell.mjs. The admin upsell renders this; curate the
  * feature list to fit this plugin's settings screen (do not invent features).
  *
- * @package plogins-rapid-pro
+ * @package tujo-pro
  */
 
 defined('ABSPATH') || exit;
 
 return [
     'name'       => 'Tujo Pro',
-    'url'        => 'https://plogins.com/plogins-rapid-pro/pricing/',
+    'url'        => 'https://plogins.com/tujo-pro/pricing/',
     'sellable'   => true,
     'price_from' => 29,
     'currency'   => 'EUR',
