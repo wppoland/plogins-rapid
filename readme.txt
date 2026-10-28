@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,15 +20,15 @@ products to the cart in a **single submit**, no clicking through product pages.
 It is built for B2B, wholesale, trade and reorder workflows, where buyers know
 what they want and value speed over browsing.
 
-The code lives on GitHub at [github.com/wppoland/plogins-rapid](https://github.com/wppoland/plogins-rapid); that is the
+The code lives on GitHub at [github.com/wppoland/tujo](https://github.com/wppoland/tujo); that is the
 place to read the source, file a bug or send a patch.
 
 = Documentation and links =
 
-* **Documentation**: [plogins.com/plogins-rapid/docs/](https://plogins.com/plogins-rapid/docs/)
-* **Plugin page**: [plogins.com/plogins-rapid/](https://plogins.com/plogins-rapid/)
-* **Source code**: [github.com/wppoland/plogins-rapid](https://github.com/wppoland/plogins-rapid)
-* **Bug reports and feature requests**: [github.com/wppoland/plogins-rapid/issues](https://github.com/wppoland/plogins-rapid/issues)
+* **Documentation**: [plogins.com/tujo/docs/](https://plogins.com/tujo/docs/)
+* **Plugin page**: [plogins.com/tujo/](https://plogins.com/tujo/)
+* **Source code**: [github.com/wppoland/tujo](https://github.com/wppoland/tujo)
+* **Bug reports and feature requests**: [github.com/wppoland/tujo/issues](https://github.com/wppoland/tujo/issues)
 
 
 = Features =
@@ -71,9 +71,9 @@ Tujo Pro adds:
 
 The free edition is not a trial and its features stay available without a time limit.
 
-* **Tujo Pro** - [plogins.com/plogins-rapid-pro/](https://plogins.com/plogins-rapid-pro/)
-* **Compare editions and pricing** - [plogins.com/plogins-rapid-pro/pricing/](https://plogins.com/plogins-rapid-pro/pricing/)
-* **PRO documentation** - [plogins.com/plogins-rapid-pro/docs/](https://plogins.com/plogins-rapid-pro/docs/)
+* **Tujo Pro** - [plogins.com/tujo-pro/](https://plogins.com/tujo-pro/)
+* **Compare editions and pricing** - [plogins.com/tujo-pro/pricing/](https://plogins.com/tujo-pro/pricing/)
+* **PRO documentation** - [plogins.com/tujo-pro/docs/](https://plogins.com/tujo-pro/docs/)
 
 == Installation ==
 
@@ -137,6 +137,9 @@ Tujo does not connect to any external services. The live product search runs aga
 Tujo is fully translatable and ships the `tujo.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.5 =
+* Links point at the new plogins.com address and the renamed GitHub repository.
 
 = 1.1.4 =
 * The quick-order template now receives the visitor context; it used to get the whole template variable array, so the rapid/form_fields action passed settings, products and notice as its visitor context.
