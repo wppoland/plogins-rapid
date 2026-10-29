@@ -213,3 +213,8 @@ Tujo is fully translatable and ships the `tujo.pot` template. Translations are d
 
 = 0.1.0 =
 * Initial release: `[rapid_order]` shortcode with AJAX product search by name or SKU, configurable product scope (all / selected categories), batched add-to-cart with a single notice, selectable columns (image / SKU / price / stock) and results-per-page.
+
+== Upgrade Notice ==
+
+= 1.1.6 =
+Security release. The quick order form listed password-protected products with their prices. Update, nothing else to do.
