@@ -224,12 +224,15 @@ final class OrderForm implements HasHooks
         $perPage = $this->perPage($settings);
 
         $args = [
-            'status'   => 'publish',
-            'limit'    => $perPage,
-            'orderby'  => 'title',
-            'order'    => 'ASC',
-            'return'   => 'objects',
-            'paginate' => false,
+            'status'       => 'publish',
+            // The form is public and can show prices: a password-protected
+            // product is not, so it stays out of the table and the search.
+            'has_password' => false,
+            'limit'        => $perPage,
+            'orderby'      => 'title',
+            'order'        => 'ASC',
+            'return'       => 'objects',
+            'paginate'     => false,
         ];
 
         if ('' !== $term) {
